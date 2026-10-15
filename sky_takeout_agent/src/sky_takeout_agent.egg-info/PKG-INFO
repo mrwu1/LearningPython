@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: sky-takeout-agent
+Version: 0.1.0
+Requires-Python: >=3.12
+Requires-Dist: fastapi[standard]>=0.143.1
+Requires-Dist: uvicorn>=0.54.0
