@@ -1,0 +1,201 @@
+import asyncio
+import json
+from typing import Annotated, Any
+
+from fastapi import APIRouter, HTTPException, Depends
+from pydantic import BaseModel
+from sqlalchemy import select
+
+from app.core.config import settings
+from loguru import logger
+
+from app.core.database import AsyncSessionLocal
+from app.core.redis_client import  redis_client
+from app.models.dish import Dish
+from app.api.deps import SessionDep, UserDep, check_role, ContextDep
+
+from app.core.security import decode_access_token, create_access_token
+
+api_router = APIRouter()
+# 👈 这个 Router 下面的所有接口，全部自动强制鉴权！
+# admin_router = APIRouter(
+#     prefix="/admin",
+#     tags=["管理员模块"],
+#     dependencies=[   # 全组统一上锁
+#             Depends(get_current_user)
+#             Depends(check_role("ADMIN")),   # 守卫 1：必须是管理员
+#             Depends(rate_limiter),         # 守卫 2：防刷频次限流 (如果需要)
+#     ]
+# )
+#⚠️： 有些依赖我们只需要它的拦截与校验效果（例如：角色检查 check_role("ADMIN")、IP黑名单检测、频次限流），而不需要在
+  # Controller 函数内部用到它的返回值。
+@api_router.get("/healthz",summary="health check")
+def check_health()->dict:
+    logger.info("正在执行健康检查探针逻辑...")
+    return {
+        "status": "ok",
+        "app_name": settings.APP_NAME,
+        "env": settings.ENV_MODE,
+        "db_target": f"{settings.DB_USER}@{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}",
+        # 注意：SecretStr 取出真实密钥必须调 .get_secret_value()
+        "key_masked": f"{settings.OPENAI_API_KEY.get_secret_value()[:6]}******"
+    }
+@api_router.get("/health_redis",summary="redis health check")
+async def check_redis_connections()->bool:
+    """health check: test the connection status for redis"""
+    try:
+        await redis_client.ping()
+        logger.info("✅ Redis 异步连接池就绪！")
+        return True
+    except Exception as e:
+        logger.error(f"❌ Redis 连接失败: {e}")
+        return False
+
+@api_router.get("/dishes", summary="异步查询真实外卖菜品列表")
+async def list_dishes():
+    logger.info(f"ready to start deal with the request")
+    async with AsyncSessionLocal() as session:
+        stmt = select(Dish).limit(5)
+        logger.info(f"SQL is ready:{stmt}")
+        result = await session.execute(stmt)
+        logger.info(f"execute sql successful: {result}")
+        dishes = result.scalars().all()
+        return {
+            "total": len(dishes),
+            "data": [
+                {"id": d.id, "name": d.name, "price": float(d.price), "status": d.status}
+                for d in dishes
+            ]
+        }
+@api_router.get("/dishes_dep", summary="dep-异步查询真实外卖菜品列表")
+async def list_dishes_dep(session:SessionDep):
+    stmt = select(Dish).limit(5)
+    result = await session.execute(stmt)
+    logger.info(f"stmt sql:{stmt},execute sql successful: {result}")
+    dishes = result.scalars().all()
+    return {
+        "total": len(dishes),
+        "data": [
+            {"id": d.id, "name": d.name, "price": float(d.price), "status": d.status}
+            for d in dishes
+        ]
+    }
+
+@api_router.get("/dishes_redis", summary="redis异步查询真实外卖菜品列表")
+async def list_dishes_with_cache(session:SessionDep):
+    cache_key = "sky:takeout:dishes:top5"
+
+    cached_data = await redis_client.get(cache_key)
+    logger.info(f"the result for redis:{cached_data}")
+    if  not cached_data:
+        stmt = select(Dish).limit(5)
+        result = await session.execute(stmt)
+        logger.info(f"sq:{stmt},\n execute sql successful: {result}")
+        dishes = result.scalars().all()
+        query = {
+            "total": len(dishes),
+            "data": [
+                {"id": d.id, "name": d.name, "price": float(d.price), "status": d.status}
+                for d in dishes
+            ]
+        }
+        await redis_client.set(cache_key, json.dumps(query), ex=60)
+        logger.info(f"the sql result has been write into redis.")
+        return query
+    logger.info(f"return redis query result directly!{cached_data}")
+    return  json.loads(cached_data)
+
+
+@api_router.post("/orders/submit")
+async def submitOrder(order_id:int):
+    #mock the high concurrency
+    lock_key = f"lock:order:{order_id}"
+
+    # 获取 redis 异步锁实例：超时 10 秒自动释放防止死锁，非阻塞尝试获取
+    # blocking=False 等同于 Java 的 tryLock(0, TimeUnit.SECONDS)
+    lock = redis_client.lock(lock_key,timeout=10,blocking=False)
+
+    # 1. add a lock
+    acquired = await lock.acquire()
+    if not acquired:
+        logger.warning(f"⚠️：the {order_id} is dealing to db,trigger the repeat warning")
+        raise HTTPException(status_code=409, detail="service busy! please try again later")
+
+    try:
+        logger.info(f"start a new order_id{order_id}")
+        await asyncio.sleep(3)
+        logger.info("successful work!")
+        return {"code": 200, "message": f"order {order_id} submit success"}
+    finally:
+        await lock.release()
+        logger.info("the lock has been released successful!")
+
+class LoginRequest(BaseModel):
+    username:str
+    password:str
+@api_router.post("/login")
+async def login(req:LoginRequest):
+    # 模拟外卖平台两类用户验证：管理员与普通骑手
+    if req.username == "admin" and req.password == "admin123":
+        user_role = "ADMIN"
+    elif req.username == "rider" and req.password == "rider123":
+        user_role = "RIDER"
+    else:
+        raise HTTPException(status_code=400, detail="用户名或密码错误")
+
+    token = create_access_token({"sub": req.username,"username": req.username,  "role": user_role})
+    return {"access_token": token, "token_type": "bearer", "role": user_role}
+
+
+@api_router.get("/me", summary="获取当前登录用户信息")
+async def read_current_user(user: UserDep):
+    return {"message": "认证成功", "current_user": user}
+
+
+@api_router.post("/admin/dishes", summary="管理员专有菜品创建接口")
+async def admin_create_dish(admin_user: Annotated[dict, Depends(check_role("ADMIN"))]):
+    return {"message": "操作成功：管理员已完成菜品配置", "operator": admin_user["username"]}
+
+#-----------fastapi 参数的自动解析功能 ✅✅✅-------------------
+@api_router.get("/favorites/{category_id}")
+async def get_favorites(
+        category_id: int,  # 1. 路径参数 (Path Param): 匹配 URL 中的 {category_id}
+        page: int = 1,  # 2. 查询参数 (Query Param): ?page=1
+        page_size: int = 10,  # 2. 查询参数 (Query Param): &page_size=10
+        keyword: str | None = None,  # 2. 查询参数 (可选): &keyword=xxx
+        user: UserDep = None,  # 3. 依赖注入：自动解析 JWT 得到当前登录用户
+        session: SessionDep = None  # 4. 依赖注入：自动借出 DB 连接，并在方法结束后自动 Commit
+):
+    # 此时，所有数据全都在局部变量里就绪了！
+    print(f"当前操作用户: {user['username']}")
+    print(f"查询目标分类: {category_id}, 页码: {page}, 关键词: {keyword}")
+
+    # 直接用 session 查数据库
+    # stmt = select(Favorite).where(Favorite.user_id == user["user_id"])
+    # result = await session.execute(stmt)
+
+    return {"status": "ok", "operator": user["username"]}
+
+    # 1. 定义 DTO (对标 Java 的 FavoriteAddDTO)
+class AddFavoriteRequest(BaseModel):
+        dish_id: int
+        remark: str | None = None
+
+        # 2. Controller 接收
+
+@api_router.post("/favorites")
+async def add_favorite(
+            req: AddFavoriteRequest,  # 👈 自动作为 Request Body (JSON) 反序列化
+            user: UserDep,  # 👈 依赖注入：当前用户
+            session: SessionDep  # 👈 依赖注入：数据库会话
+    ):
+        print(f"用户 {user['username']} 正在收藏菜品: {req.dish_id}")
+        # 业务入库逻辑...
+        return {"message": "收藏成功"}
+
+@api_router.post("/orders")
+async def create_order(req: Any, ctx: ContextDep):
+        # 只需一个 ctx 参数！
+        print(f"当前用户: {ctx.user['username']}")
+        # 直接用里面的 session 查库
+        # await ctx.session.execute(...)
