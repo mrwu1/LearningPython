@@ -4,7 +4,7 @@ import uuid
 from fastapi import FastAPI, Request
 from loguru import logger
 
-from app.api.v1.app_router import api_router
+from app.api.v1.api import api_router
 from app.core.logging import trace_id_ctx
 
 
@@ -34,6 +34,13 @@ async def trace_id_middleware(request:Request,call_next):
 
 # 2. ADD ROUTER:
 app.include_router(api_router,prefix="/api/v1")
+
+# 全站所有接口默认上锁 ✅
+#  app = FastAPI(dependencies=[Depends(get_current_user)])
+
+# 对标 Spring：
+# http.authorizeRequests()
+#   .anyRequest().authenticated(); // 全站默认拦截
 
 if __name__=="__main__":
     import uvicorn

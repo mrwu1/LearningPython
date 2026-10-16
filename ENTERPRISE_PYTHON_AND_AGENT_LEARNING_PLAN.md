@@ -318,13 +318,13 @@ my_enterprise_app/
 | **2.2** | pydantic-settings 敏感配置与多环境治理 | ✅ 已完成 | `sky_takeout_agent/src/app/core/config.py` | 2026-10-15 |
 | **2.3** | Loguru 异步切片与 Trace ID 全链路日志 | ✅ 已完成 | `sky_takeout_agent/src/app/core/logging.py` | 2026-10-15 |
 | **2.4** | Pytest 依赖注入与大模型请求 Mock 测试 | ✅ 已完成 | `sky_takeout_agent/test/` | 2026-10-15 |
-| **3.1** | SQLAlchemy 2.0 Async 异步连接池与模型映射 | ⏳ 待开始 | `src/app/models/dish.py` / `db.py` | - |
-| **3.2** | Alembic 自动化版本迁移管理 | ⏳ 待开始 | `alembic/versions/` | - |
-| **3.3** | Async Redis 连接池、缓存与分布式锁 | ⏳ 待开始 | `src/app/core/redis_client.py` | - |
-| **4.1** | FastAPI 依赖注入 (Depends) 事务闭环 | ⏳ 待开始 | `src/app/api/deps.py` | - |
-| **4.2** | OAuth2 + JWT + RBAC 细粒度安全鉴权 | ⏳ 待开始 | `src/app/core/security.py` | - |
-| **4.3** | ARQ / Celery 异步长任务队列解耦 | ⏳ 待开始 | `src/app/services/task_queue.py` | - |
-| **5.1** | LangGraph 状态图与 Human-in-the-loop 审批 | ⏳ 待开始 | `src/langgraph_study/lesson_01_approval_graph.py` | - |
+| **3.1** | SQLAlchemy 2.0 Async 异步连接池与模型映射 | ✅ 已完成 | `sky_takeout_agent/src/app/models/dish.py` | 2026-10-15 |
+| **3.2** | Alembic 自动化版本迁移管理 | ✅ 已完成 | `sky_takeout_agent/alembic/versions/` | 2026-10-15 |
+| **3.3** | Async Redis 连接池、缓存与分布式锁 | ✅ 已完成 | `sky_takeout_agent/src/app/core/redis_client.py` | 2026-10-16 |
+| **4.1** | FastAPI 依赖注入 (Depends) 事务闭环 | ✅ 已完成 | `sky_takeout_agent/src/app/api/deps.py` | 2026-10-16 |
+| **4.2** | OAuth2 + JWT + RBAC 细粒度安全鉴权 | ✅ 已完成 | `sky_takeout_agent/src/app/core/security.py` | 2026-10-16 |
+| **4.3** | ARQ / Celery / BackgroundTasks 异步长任务队列解耦 | ✅ 已完成 | `sky_takeout_agent/src/app/api/v1/endpoints/tasks.py` | 2026-10-16 |
+| **5.1** | LangGraph 状态图与 Human-in-the-loop 审批 | ✅ 已完成 | `sky_takeout_agent/src/app/langGraph/refund_graph.py` | 2026-10-16 |
 | **5.2** | 高阶 RAG：混合检索 (BM25+向量) 与重排序 | ⏳ 待开始 | `src/rag_study/lesson_05_hybrid_search.py` | - |
 | **5.3** | Supervisor 多智能体编排协同集群 | ⏳ 待开始 | `src/agent_study/lesson_06_multi_agent_supervisor.py` | - |
 | **6.1** | Langfuse 全链路追踪与 Token 成本分析 | ⏳ 待开始 | `src/app/core/observability.py` | - |

@@ -22,3 +22,1137 @@
 2026-10-15 16:02:25.217 | INFO     | [TraceID: test-ci-999] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/healthz
 2026-10-15 16:02:25.218 | INFO     | [TraceID: test-ci-999] | app.api.v1.app_router:check_health:10 - 正在执行健康检查探针逻辑...
 2026-10-15 16:02:25.218 | INFO     | [TraceID: test-ci-999] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/healthz - 状态: 200 - 耗时: 1.41ms
+2026-10-15 16:30:18.428 | INFO     | [TraceID: test-ci-999] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/healthz
+2026-10-15 16:30:18.429 | INFO     | [TraceID: test-ci-999] | app.api.v1.app_router:check_health:14 - 正在执行健康检查探针逻辑...
+2026-10-15 16:30:18.430 | INFO     | [TraceID: test-ci-999] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/healthz - 状态: 200 - 耗时: 1.87ms
+2026-10-15 16:30:38.705 | INFO     | [TraceID: d2802e24] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 16:32:27.565 | INFO     | [TraceID: f5a16c92] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 16:34:33.636 | INFO     | [TraceID: f5ab6188] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 16:37:11.442 | INFO     | [TraceID: 44233d74] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 16:41:46.627 | INFO     | [TraceID: 9aea15a3] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 16:44:37.682 | INFO     | [TraceID: 9c7b970d] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 16:44:37.685 | INFO     | [TraceID: 9c7b970d] | app.api.v1.app_router:list_dishes:26 - ready to start deal with the request
+2026-10-15 16:44:37.689 | INFO     | [TraceID: 9c7b970d] | app.api.v1.app_router:list_dishes:29 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-15 16:44:49.830 | INFO     | [TraceID: 9c7b970d] | app.api.v1.app_router:list_dishes:31 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10a543a90>
+2026-10-15 16:44:52.417 | INFO     | [TraceID: 9c7b970d] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes - 状态: 200 - 耗时: 14734.57ms
+2026-10-15 16:54:41.274 | INFO     | [TraceID: mysql-test-001] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 16:54:41.275 | INFO     | [TraceID: mysql-test-001] | app.api.v1.app_router:list_dishes:26 - ready to start deal with the request
+2026-10-15 16:54:41.276 | INFO     | [TraceID: mysql-test-001] | app.api.v1.app_router:list_dishes:29 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-15 17:07:18.659 | INFO     | [TraceID: 11c41a9c] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-15 17:07:18.662 | INFO     | [TraceID: 11c41a9c] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 3.11ms
+2026-10-15 17:07:18.717 | INFO     | [TraceID: 19cb3d8a] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-15 17:07:18.722 | INFO     | [TraceID: 19cb3d8a] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 4.59ms
+2026-10-15 17:07:24.624 | INFO     | [TraceID: 170d6f60] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 17:07:24.625 | INFO     | [TraceID: 170d6f60] | app.api.v1.app_router:list_dishes:26 - ready to start deal with the request
+2026-10-15 17:07:24.629 | INFO     | [TraceID: 170d6f60] | app.api.v1.app_router:list_dishes:29 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-15 17:08:40.150 | INFO     | [TraceID: 7cf52034] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 17:08:40.153 | INFO     | [TraceID: 7cf52034] | app.api.v1.app_router:list_dishes:26 - ready to start deal with the request
+2026-10-15 17:08:40.161 | INFO     | [TraceID: 7cf52034] | app.api.v1.app_router:list_dishes:29 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-15 17:08:40.574 | INFO     | [TraceID: 7cf52034] | app.api.v1.app_router:list_dishes:31 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10a8f99d0>
+2026-10-15 17:08:41.183 | INFO     | [TraceID: 7cf52034] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes - 状态: 200 - 耗时: 1033.23ms
+2026-10-15 17:21:47.430 | INFO     | [TraceID: mysql-test-success] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes
+2026-10-15 17:21:47.431 | INFO     | [TraceID: mysql-test-success] | app.api.v1.app_router:list_dishes:26 - ready to start deal with the request
+2026-10-15 17:21:47.432 | INFO     | [TraceID: mysql-test-success] | app.api.v1.app_router:list_dishes:29 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-15 17:21:59.779 | INFO     | [TraceID: mysql-test-success] | app.api.v1.app_router:list_dishes:31 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10935f290>
+2026-10-15 17:22:01.378 | INFO     | [TraceID: mysql-test-success] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes - 状态: 200 - 耗时: 13947.84ms
+2026-10-15 17:22:04.008 | INFO     | [TraceID: 68d5ae49] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-15 17:22:04.011 | INFO     | [TraceID: 68d5ae49] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 2.69ms
+2026-10-15 17:22:04.061 | INFO     | [TraceID: 3064f7e0] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-15 17:22:04.063 | INFO     | [TraceID: 3064f7e0] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 1.61ms
+2026-10-16 09:52:43.156 | INFO     | [TraceID: f0858b66] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 09:52:43.157 | INFO     | [TraceID: f0858b66] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.10ms
+2026-10-16 09:52:43.217 | INFO     | [TraceID: 7a922e2b] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 09:52:43.220 | INFO     | [TraceID: 7a922e2b] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 3.14ms
+2026-10-16 09:52:49.748 | INFO     | [TraceID: 70b30d5e] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 09:52:49.754 | INFO     | [TraceID: 70b30d5e] | app.api.v1.app_router:list_dishes:56 - the result for redis:<coroutine object Redis.execute_command at 0x10b732260>
+2026-10-16 09:52:49.754 | INFO     | [TraceID: 70b30d5e] | app.api.v1.app_router:list_dishes:75 - return redis query result directly!
+2026-10-16 09:54:27.940 | INFO     | [TraceID: 9ebe77d2] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 09:54:27.941 | INFO     | [TraceID: 9ebe77d2] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 0.87ms
+2026-10-16 09:54:27.987 | INFO     | [TraceID: 50afe90b] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 09:54:27.991 | INFO     | [TraceID: 50afe90b] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 3.76ms
+2026-10-16 09:54:30.612 | INFO     | [TraceID: 6f1030da] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 09:54:30.614 | ERROR    | [TraceID: 6f1030da] | app.core.redis_client:check_redis_connections:26 - ❌ Redis 连接失败: AbstractConnection.__init__() got an unexpected keyword argument 'decode_response'
+2026-10-16 09:54:30.615 | INFO     | [TraceID: 6f1030da] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 2.48ms
+2026-10-16 09:55:50.889 | INFO     | [TraceID: 4c75cfa6] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 09:55:50.890 | INFO     | [TraceID: 4c75cfa6] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.07ms
+2026-10-16 09:55:50.934 | INFO     | [TraceID: 4e8f2929] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 09:55:50.937 | INFO     | [TraceID: 4e8f2929] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 3.03ms
+2026-10-16 09:55:52.939 | INFO     | [TraceID: 25458018] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 09:55:52.943 | ERROR    | [TraceID: 25458018] | app.core.redis_client:check_redis_connections:27 - ❌ Redis 连接失败: AbstractConnection.__init__() got an unexpected keyword argument 'decode_response'
+2026-10-16 09:55:52.944 | INFO     | [TraceID: 25458018] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 4.50ms
+2026-10-16 09:59:13.418 | INFO     | [TraceID: 9db33e6b] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 09:59:13.419 | INFO     | [TraceID: 9db33e6b] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 0.99ms
+2026-10-16 09:59:13.467 | INFO     | [TraceID: 276a912f] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 09:59:13.471 | INFO     | [TraceID: 276a912f] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 4.81ms
+2026-10-16 09:59:18.696 | INFO     | [TraceID: 681c1454] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 09:59:18.699 | ERROR    | [TraceID: 681c1454] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: AbstractConnection.__init__() got an unexpected keyword argument 'decode_response'
+2026-10-16 09:59:18.700 | INFO     | [TraceID: 681c1454] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 4.27ms
+2026-10-16 10:00:18.357 | INFO     | [TraceID: c3a6a673] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 10:00:18.358 | INFO     | [TraceID: c3a6a673] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 0.92ms
+2026-10-16 10:00:18.406 | INFO     | [TraceID: 5350ac47] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 10:00:18.411 | INFO     | [TraceID: 5350ac47] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 5.71ms
+2026-10-16 10:00:21.455 | INFO     | [TraceID: 816eb394] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:00:21.457 | ERROR    | [TraceID: 816eb394] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: AbstractConnection.__init__() got an unexpected keyword argument 'decode_response'
+2026-10-16 10:00:21.459 | INFO     | [TraceID: 816eb394] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 3.82ms
+2026-10-16 10:01:28.388 | INFO     | [TraceID: 87a28306] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 10:01:28.390 | INFO     | [TraceID: 87a28306] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 2.11ms
+2026-10-16 10:01:28.444 | INFO     | [TraceID: 5b95470e] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 10:01:28.451 | INFO     | [TraceID: 5b95470e] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 6.87ms
+2026-10-16 10:01:31.274 | INFO     | [TraceID: 62ebf1e1] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:01:31.567 | INFO     | [TraceID: 62ebf1e1] | app.api.v1.app_router:check_redis_connections:31 - ✅ Redis 异步连接池就绪！
+2026-10-16 10:01:31.568 | INFO     | [TraceID: 62ebf1e1] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 293.90ms
+2026-10-16 10:01:39.520 | INFO     | [TraceID: db16a7c3] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:01:39.522 | INFO     | [TraceID: db16a7c3] | app.api.v1.app_router:list_dishes:66 - the result for redis:<coroutine object Redis.execute_command at 0x10b64a260>
+2026-10-16 10:01:39.522 | INFO     | [TraceID: db16a7c3] | app.api.v1.app_router:list_dishes:85 - return redis query result directly!
+2026-10-16 10:03:31.188 | INFO     | [TraceID: 07a3ca93] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:03:31.190 | INFO     | [TraceID: 07a3ca93] | app.api.v1.app_router:list_dishes:66 - the result for redis:<coroutine object Redis.execute_command at 0x10cae2260>
+2026-10-16 10:03:31.191 | INFO     | [TraceID: 07a3ca93] | app.api.v1.app_router:list_dishes:69 - start with query from db
+2026-10-16 10:03:31.193 | INFO     | [TraceID: 07a3ca93] | app.api.v1.app_router:list_dishes:71 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-16 10:03:49.125 | INFO     | [TraceID: 07a3ca93] | app.api.v1.app_router:list_dishes:73 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10ce3ca10>
+2026-10-16 10:03:49.136 | INFO     | [TraceID: 07a3ca93] | app.api.v1.app_router:list_dishes:83 - the sql result has been write into redis.
+2026-10-16 10:03:49.223 | INFO     | [TraceID: 07a3ca93] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 18035.41ms
+2026-10-16 10:04:42.719 | INFO     | [TraceID: 8a7116d9] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:04:42.721 | INFO     | [TraceID: 8a7116d9] | app.api.v1.app_router:list_dishes:66 - the result for redis:<coroutine object Redis.execute_command at 0x10b546260>
+2026-10-16 10:04:42.722 | INFO     | [TraceID: 8a7116d9] | app.api.v1.app_router:list_dishes:85 - return redis query result directly!<coroutine object Redis.execute_command at 0x10b546260>
+2026-10-16 10:07:38.624 | INFO     | [TraceID: 19868fde] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 10:07:38.627 | INFO     | [TraceID: 19868fde] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 2.56ms
+2026-10-16 10:07:38.682 | INFO     | [TraceID: 7aaae51f] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 10:07:38.685 | INFO     | [TraceID: 7aaae51f] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 3.96ms
+2026-10-16 10:07:42.611 | INFO     | [TraceID: fb0c24aa] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:07:47.623 | ERROR    | [TraceID: fb0c24aa] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: Timeout reading from 127.0.0.1:6379
+2026-10-16 10:07:47.624 | INFO     | [TraceID: fb0c24aa] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 5012.68ms
+2026-10-16 10:08:06.720 | INFO     | [TraceID: f7e320e6] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:08:11.726 | ERROR    | [TraceID: f7e320e6] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: Timeout reading from 127.0.0.1:6379
+2026-10-16 10:08:11.728 | INFO     | [TraceID: f7e320e6] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 5007.66ms
+2026-10-16 10:08:28.592 | INFO     | [TraceID: 11f2c9b3] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:08:29.006 | INFO     | [TraceID: 11f2c9b3] | app.api.v1.app_router:check_redis_connections:31 - ✅ Redis 异步连接池就绪！
+2026-10-16 10:08:29.007 | INFO     | [TraceID: 11f2c9b3] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 414.98ms
+2026-10-16 10:08:31.208 | INFO     | [TraceID: 7a163bf3] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:08:32.817 | INFO     | [TraceID: 7a163bf3] | app.api.v1.app_router:check_redis_connections:31 - ✅ Redis 异步连接池就绪！
+2026-10-16 10:08:32.818 | INFO     | [TraceID: 7a163bf3] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 1610.31ms
+2026-10-16 10:08:37.901 | INFO     | [TraceID: 2a425bae] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:08:37.902 | INFO     | [TraceID: 2a425bae] | app.api.v1.app_router:list_dishes:66 - the result for redis:<coroutine object Redis.execute_command at 0x10d18a260>
+2026-10-16 10:08:37.902 | INFO     | [TraceID: 2a425bae] | app.api.v1.app_router:list_dishes:85 - return redis query result directly!<coroutine object Redis.execute_command at 0x10d18a260>
+2026-10-16 10:09:38.719 | INFO     | [TraceID: 64635c4f] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:09:43.724 | ERROR    | [TraceID: 64635c4f] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: Timeout reading from 127.0.0.1:6379
+2026-10-16 10:09:43.726 | INFO     | [TraceID: 64635c4f] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 5007.09ms
+2026-10-16 10:09:49.058 | INFO     | [TraceID: 557e4820] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 10:09:49.059 | INFO     | [TraceID: 557e4820] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.01ms
+2026-10-16 10:09:49.106 | INFO     | [TraceID: 0ad64a2d] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 10:09:49.108 | INFO     | [TraceID: 0ad64a2d] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 1.61ms
+2026-10-16 10:09:57.205 | INFO     | [TraceID: 94261982] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:10:02.207 | ERROR    | [TraceID: 94261982] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: Timeout reading from 127.0.0.1:6379
+2026-10-16 10:10:02.208 | INFO     | [TraceID: 94261982] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 5003.67ms
+2026-10-16 10:10:05.575 | INFO     | [TraceID: d37ec95a] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:10:13.196 | ERROR    | [TraceID: d37ec95a] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: Timeout reading from 127.0.0.1:6379
+2026-10-16 10:10:13.198 | INFO     | [TraceID: d37ec95a] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 7622.77ms
+2026-10-16 10:10:20.573 | INFO     | [TraceID: 522330e5] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:10:20.988 | INFO     | [TraceID: 522330e5] | app.api.v1.app_router:check_redis_connections:31 - ✅ Redis 异步连接池就绪！
+2026-10-16 10:10:20.989 | INFO     | [TraceID: 522330e5] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 416.13ms
+2026-10-16 10:10:29.371 | INFO     | [TraceID: f40c45bd] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:10:31.570 | INFO     | [TraceID: f40c45bd] | app.api.v1.app_router:list_dishes:58 - the result for redis:None
+2026-10-16 10:10:31.571 | INFO     | [TraceID: f40c45bd] | app.api.v1.app_router:list_dishes:61 - start with query from db
+2026-10-16 10:10:31.591 | INFO     | [TraceID: f40c45bd] | app.api.v1.app_router:list_dishes:63 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-16 10:10:42.570 | INFO     | [TraceID: f40c45bd] | app.api.v1.app_router:list_dishes:65 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10d5044d0>
+2026-10-16 10:10:42.584 | INFO     | [TraceID: f40c45bd] | app.api.v1.app_router:list_dishes:75 - the sql result has been write into redis.
+2026-10-16 10:10:49.338 | INFO     | [TraceID: f40c45bd] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 19966.77ms
+2026-10-16 10:11:59.070 | INFO     | [TraceID: 2227dc94] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:12:07.964 | INFO     | [TraceID: aaed5684] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:12:17.850 | INFO     | [TraceID: 0278e454] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:12:26.251 | INFO     | [TraceID: 387cabe7] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:12:33.874 | INFO     | [TraceID: 387cabe7] | app.api.v1.app_router:check_redis_connections:31 - ✅ Redis 异步连接池就绪！
+2026-10-16 10:12:33.875 | INFO     | [TraceID: 387cabe7] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 7623.50ms
+2026-10-16 10:12:40.972 | INFO     | [TraceID: 8a33f508] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:12:40.995 | INFO     | [TraceID: 8a33f508] | app.api.v1.app_router:list_dishes:58 - the result for redis:None
+2026-10-16 10:12:40.995 | INFO     | [TraceID: 8a33f508] | app.api.v1.app_router:list_dishes:61 - start with query from db
+2026-10-16 10:12:40.998 | INFO     | [TraceID: 8a33f508] | app.api.v1.app_router:list_dishes:63 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-16 10:12:51.986 | INFO     | [TraceID: 8a33f508] | app.api.v1.app_router:list_dishes:65 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10bb21090>
+2026-10-16 10:12:52.011 | INFO     | [TraceID: 8a33f508] | app.api.v1.app_router:list_dishes:75 - the sql result has been write into redis.
+2026-10-16 10:12:58.778 | INFO     | [TraceID: 8a33f508] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 17805.94ms
+2026-10-16 10:13:19.241 | INFO     | [TraceID: a0fc6804] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:13:19.272 | INFO     | [TraceID: a0fc6804] | app.api.v1.app_router:list_dishes:58 - the result for redis:b'{"total": 3, "data": [{"id": 1, "name": "\\u8fa3\\u5b50\\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\\u51c9\\u62cc\\u9ec4\\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\\u7c73\\u996d", "price": 2.0, "status": 1}]}'
+2026-10-16 10:13:19.273 | INFO     | [TraceID: a0fc6804] | app.api.v1.app_router:list_dishes:77 - return redis query result directly!b'{"total": 3, "data": [{"id": 1, "name": "\\u8fa3\\u5b50\\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\\u51c9\\u62cc\\u9ec4\\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\\u7c73\\u996d", "price": 2.0, "status": 1}]}'
+2026-10-16 10:13:19.274 | INFO     | [TraceID: a0fc6804] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 33.16ms
+2026-10-16 10:15:21.855 | INFO     | [TraceID: c595829b] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:15:26.859 | ERROR    | [TraceID: c595829b] | app.api.v1.app_router:check_redis_connections:34 - ❌ Redis 连接失败: Timeout reading from 127.0.0.1:6379
+2026-10-16 10:15:26.861 | INFO     | [TraceID: c595829b] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 5005.55ms
+2026-10-16 10:15:26.865 | INFO     | [TraceID: bf1763e4] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:25:02.085 | INFO     | [TraceID: 68695275] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/healthz
+2026-10-16 10:25:02.091 | INFO     | [TraceID: 68695275] | app.api.v1.app_router:check_health:17 - 正在执行健康检查探针逻辑...
+2026-10-16 10:25:02.093 | INFO     | [TraceID: 68695275] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/healthz - 状态: 200 - 耗时: 8.71ms
+2026-10-16 10:25:12.524 | INFO     | [TraceID: 3bb147be] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/health_redis
+2026-10-16 10:25:12.591 | INFO     | [TraceID: 3bb147be] | app.api.v1.app_router:check_redis_connections:31 - ✅ Redis 异步连接池就绪！
+2026-10-16 10:25:12.592 | INFO     | [TraceID: 3bb147be] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/health_redis - 状态: 200 - 耗时: 68.22ms
+2026-10-16 10:25:21.330 | INFO     | [TraceID: 99648ec0] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:25:21.358 | INFO     | [TraceID: 99648ec0] | app.api.v1.app_router:list_dishes:58 - the result for redis:None
+2026-10-16 10:25:21.360 | INFO     | [TraceID: 99648ec0] | app.api.v1.app_router:list_dishes:61 - start with query from db
+2026-10-16 10:25:21.367 | INFO     | [TraceID: 99648ec0] | app.api.v1.app_router:list_dishes:63 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-16 10:25:30.318 | INFO     | [TraceID: 99648ec0] | app.api.v1.app_router:list_dishes:65 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10bb21d50>
+2026-10-16 10:25:30.401 | INFO     | [TraceID: 99648ec0] | app.api.v1.app_router:list_dishes:75 - the sql result has been write into redis.
+2026-10-16 10:25:30.497 | INFO     | [TraceID: 99648ec0] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 9167.61ms
+2026-10-16 10:25:40.226 | INFO     | [TraceID: f212bd1c] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:25:40.436 | INFO     | [TraceID: f212bd1c] | app.api.v1.app_router:list_dishes:58 - the result for redis:b'{"total": 3, "data": [{"id": 1, "name": "\\u8fa3\\u5b50\\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\\u51c9\\u62cc\\u9ec4\\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\\u7c73\\u996d", "price": 2.0, "status": 1}]}'
+2026-10-16 10:25:40.436 | INFO     | [TraceID: f212bd1c] | app.api.v1.app_router:list_dishes:77 - return redis query result directly!b'{"total": 3, "data": [{"id": 1, "name": "\\u8fa3\\u5b50\\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\\u51c9\\u62cc\\u9ec4\\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\\u7c73\\u996d", "price": 2.0, "status": 1}]}'
+2026-10-16 10:25:40.437 | INFO     | [TraceID: f212bd1c] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 211.02ms
+2026-10-16 10:29:19.488 | INFO     | [TraceID: 9f5da35a] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 10:29:19.489 | INFO     | [TraceID: 9f5da35a] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.37ms
+2026-10-16 10:29:19.530 | INFO     | [TraceID: 4d2665a5] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 10:29:19.534 | INFO     | [TraceID: 4d2665a5] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 4.74ms
+2026-10-16 10:29:24.195 | INFO     | [TraceID: e7b0cee5] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:29:38.927 | INFO     | [TraceID: b34a4f76] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:29:51.111 | INFO     | [TraceID: 82bdd1bc] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:29:52.074 | INFO     | [TraceID: 82bdd1bc] | app.api.v1.app_router:list_dishes_with_cache:58 - the result for redis:None
+2026-10-16 10:29:52.075 | INFO     | [TraceID: 82bdd1bc] | app.api.v1.app_router:list_dishes_with_cache:61 - start with query from db
+2026-10-16 10:29:52.081 | INFO     | [TraceID: 82bdd1bc] | app.api.v1.app_router:list_dishes_with_cache:63 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-16 10:30:09.750 | INFO     | [TraceID: 82bdd1bc] | app.api.v1.app_router:list_dishes_with_cache:65 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10d812310>
+2026-10-16 10:30:09.839 | INFO     | [TraceID: 82bdd1bc] | app.api.v1.app_router:list_dishes_with_cache:75 - the sql result has been write into redis.
+2026-10-16 10:30:09.899 | INFO     | [TraceID: 82bdd1bc] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 18787.94ms
+2026-10-16 10:30:25.729 | INFO     | [TraceID: c296b213] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:30:25.759 | INFO     | [TraceID: c296b213] | app.api.v1.app_router:list_dishes_with_cache:58 - the result for redis:{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:30:25.759 | INFO     | [TraceID: c296b213] | app.api.v1.app_router:list_dishes_with_cache:77 - return redis query result directly!{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:30:25.760 | INFO     | [TraceID: c296b213] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 31.98ms
+2026-10-16 10:30:31.490 | INFO     | [TraceID: 42b72c86] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:30:31.514 | INFO     | [TraceID: 42b72c86] | app.api.v1.app_router:list_dishes_with_cache:58 - the result for redis:{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:30:31.515 | INFO     | [TraceID: 42b72c86] | app.api.v1.app_router:list_dishes_with_cache:77 - return redis query result directly!{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:30:31.515 | INFO     | [TraceID: 42b72c86] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 25.89ms
+2026-10-16 10:30:45.947 | INFO     | [TraceID: bfa75095] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 10:30:45.948 | INFO     | [TraceID: bfa75095] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.29ms
+2026-10-16 10:30:45.997 | INFO     | [TraceID: a704f72d] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 10:30:45.998 | INFO     | [TraceID: a704f72d] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 0.84ms
+2026-10-16 10:30:48.971 | INFO     | [TraceID: 3374d394] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:30:48.991 | INFO     | [TraceID: 3374d394] | app.api.v1.app_router:list_dishes_with_cache:58 - the result for redis:{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:30:48.991 | INFO     | [TraceID: 3374d394] | app.api.v1.app_router:list_dishes_with_cache:77 - return redis query result directly!{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:30:48.991 | INFO     | [TraceID: 3374d394] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 20.51ms
+2026-10-16 10:43:25.514 | INFO     | [TraceID: dad69694] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 10:43:25.516 | INFO     | [TraceID: dad69694] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.08ms
+2026-10-16 10:43:25.563 | INFO     | [TraceID: dfee82d6] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 10:43:25.568 | INFO     | [TraceID: dfee82d6] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 5.00ms
+2026-10-16 10:43:38.568 | INFO     | [TraceID: 269fd883] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:43:38.849 | INFO     | [TraceID: 269fd883] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:43:41.850 | INFO     | [TraceID: 269fd883] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:43:49.572 | INFO     | [TraceID: 269fd883] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:43:49.573 | INFO     | [TraceID: 269fd883] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 11004.46ms
+2026-10-16 10:50:11.896 | INFO     | [TraceID: 344db849] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:11.907 | INFO     | [TraceID: f1647e24] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:11.922 | INFO     | [TraceID: d71a8294] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:11.970 | INFO     | [TraceID: 00c4558a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.020 | INFO     | [TraceID: f2c515b8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.072 | INFO     | [TraceID: aa327962] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.124 | INFO     | [TraceID: aca5bf64] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.176 | INFO     | [TraceID: d485caf7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.224 | INFO     | [TraceID: 841409b1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.277 | INFO     | [TraceID: 899166f6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.326 | INFO     | [TraceID: f9822939] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.372 | INFO     | [TraceID: bb968a9f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.420 | INFO     | [TraceID: ceb1bfb2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.472 | INFO     | [TraceID: 444e405e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.523 | INFO     | [TraceID: 15862714] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.570 | INFO     | [TraceID: 0b7a6be7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.622 | INFO     | [TraceID: c2984345] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.669 | INFO     | [TraceID: af21c03f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.719 | INFO     | [TraceID: 9dbbf422] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:12.773 | INFO     | [TraceID: 5bcea86c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.314 | INFO     | [TraceID: 344db849] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:13.914 | WARNING  | [TraceID: f9822939] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:13.915 | WARNING  | [TraceID: bb968a9f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:13.916 | WARNING  | [TraceID: ceb1bfb2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:13.937 | INFO     | [TraceID: ddf84251] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.938 | INFO     | [TraceID: 55b3a076] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.938 | INFO     | [TraceID: 51efa5f1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.966 | WARNING  | [TraceID: 841409b1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:13.966 | WARNING  | [TraceID: 899166f6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:13.966 | WARNING  | [TraceID: aca5bf64] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:13.966 | WARNING  | [TraceID: d485caf7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:13.975 | INFO     | [TraceID: eb6537ed] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.976 | INFO     | [TraceID: fb28b1e7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.977 | INFO     | [TraceID: fa92ef91] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.977 | INFO     | [TraceID: e08aa587] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:13.999 | WARNING  | [TraceID: d71a8294] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.000 | WARNING  | [TraceID: 00c4558a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.000 | WARNING  | [TraceID: f2c515b8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.000 | WARNING  | [TraceID: aa327962] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.008 | INFO     | [TraceID: 8db56bfe] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.010 | INFO     | [TraceID: 619426dc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.011 | INFO     | [TraceID: 17acd4a9] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.011 | INFO     | [TraceID: dfa3b092] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.026 | WARNING  | [TraceID: 0b7a6be7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.027 | WARNING  | [TraceID: c2984345] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.027 | WARNING  | [TraceID: af21c03f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.028 | WARNING  | [TraceID: 9dbbf422] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.028 | WARNING  | [TraceID: 15862714] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.028 | WARNING  | [TraceID: 51efa5f1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.028 | WARNING  | [TraceID: 55b3a076] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.029 | WARNING  | [TraceID: ddf84251] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.044 | INFO     | [TraceID: 686c6e0c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.045 | INFO     | [TraceID: 200f0ef7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.047 | INFO     | [TraceID: a226b371] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.048 | INFO     | [TraceID: c4541cfd] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.049 | INFO     | [TraceID: e7a050af] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.050 | INFO     | [TraceID: 47419171] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.050 | INFO     | [TraceID: 6cd8b00c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.051 | INFO     | [TraceID: 00a2b734] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.129 | WARNING  | [TraceID: 444e405e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.129 | WARNING  | [TraceID: e08aa587] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.130 | WARNING  | [TraceID: fa92ef91] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.130 | WARNING  | [TraceID: fb28b1e7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.130 | WARNING  | [TraceID: eb6537ed] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.141 | INFO     | [TraceID: 1e08f00e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.144 | INFO     | [TraceID: b4857dc5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.145 | INFO     | [TraceID: 120020e5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.145 | INFO     | [TraceID: fb5d166d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.146 | INFO     | [TraceID: e57824c8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.164 | WARNING  | [TraceID: dfa3b092] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.165 | WARNING  | [TraceID: 17acd4a9] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.165 | WARNING  | [TraceID: 619426dc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.165 | WARNING  | [TraceID: 8db56bfe] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.172 | INFO     | [TraceID: 8b118e50] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.173 | INFO     | [TraceID: 41963151] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.173 | INFO     | [TraceID: c3bdff6c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.174 | INFO     | [TraceID: ea73640f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.218 | WARNING  | [TraceID: 00a2b734] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.218 | WARNING  | [TraceID: 6cd8b00c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.219 | WARNING  | [TraceID: 47419171] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.219 | WARNING  | [TraceID: e7a050af] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.219 | WARNING  | [TraceID: c4541cfd] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.219 | WARNING  | [TraceID: a226b371] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.219 | WARNING  | [TraceID: 200f0ef7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.219 | WARNING  | [TraceID: 686c6e0c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.228 | INFO     | [TraceID: 6e018cad] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.228 | INFO     | [TraceID: dbba25d1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.231 | INFO     | [TraceID: 3315cf30] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.231 | INFO     | [TraceID: b172dfe9] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.232 | INFO     | [TraceID: 7147b1be] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.232 | INFO     | [TraceID: 87e991d3] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.259 | WARNING  | [TraceID: e57824c8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.259 | WARNING  | [TraceID: fb5d166d] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.259 | WARNING  | [TraceID: 120020e5] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.259 | WARNING  | [TraceID: b4857dc5] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.259 | WARNING  | [TraceID: 1e08f00e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.259 | WARNING  | [TraceID: 5bcea86c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.259 | INFO     | [TraceID: 3856e6e0] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.259 | INFO     | [TraceID: de5716c6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.266 | INFO     | [TraceID: f595e995] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.267 | INFO     | [TraceID: 76d1d673] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.267 | INFO     | [TraceID: 37bff471] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.267 | INFO     | [TraceID: 2e8f00aa] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.267 | INFO     | [TraceID: 1143588c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.268 | INFO     | [TraceID: 0c26cf93] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.276 | WARNING  | [TraceID: ea73640f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.276 | WARNING  | [TraceID: c3bdff6c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.276 | WARNING  | [TraceID: 41963151] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.277 | WARNING  | [TraceID: 8b118e50] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.280 | INFO     | [TraceID: 4233b079] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.281 | INFO     | [TraceID: 0777d85e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.281 | INFO     | [TraceID: 6e629046] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.282 | INFO     | [TraceID: 0e1ffffe] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.329 | WARNING  | [TraceID: 7147b1be] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.329 | WARNING  | [TraceID: b172dfe9] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.329 | WARNING  | [TraceID: 3315cf30] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.329 | WARNING  | [TraceID: dbba25d1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.329 | WARNING  | [TraceID: 6e018cad] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.333 | INFO     | [TraceID: 93b8a259] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.333 | INFO     | [TraceID: 7515b6ee] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.334 | INFO     | [TraceID: bcd7b1a8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.334 | INFO     | [TraceID: d2e4e5d5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.334 | INFO     | [TraceID: e851da5b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: 0c26cf93] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: 1143588c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: 87e991d3] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: 2e8f00aa] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: 37bff471] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: 76d1d673] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: f595e995] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.373 | WARNING  | [TraceID: de5716c6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.378 | WARNING  | [TraceID: 3856e6e0] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.379 | INFO     | [TraceID: 9edffada] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.380 | INFO     | [TraceID: d987e1f0] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.380 | INFO     | [TraceID: 730b6852] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.380 | INFO     | [TraceID: 6277dacd] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.381 | INFO     | [TraceID: da575989] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.381 | INFO     | [TraceID: 0e5823fb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.381 | INFO     | [TraceID: ebf7e536] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.381 | INFO     | [TraceID: a6e8f98c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.382 | INFO     | [TraceID: a2e62a39] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.401 | WARNING  | [TraceID: 0e1ffffe] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.401 | WARNING  | [TraceID: 6e629046] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.401 | WARNING  | [TraceID: 0777d85e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.402 | WARNING  | [TraceID: 4233b079] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.404 | INFO     | [TraceID: d3274117] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.404 | INFO     | [TraceID: a93a042b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.405 | INFO     | [TraceID: ab5d218a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.405 | INFO     | [TraceID: b45843c6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.464 | WARNING  | [TraceID: e851da5b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.464 | WARNING  | [TraceID: d2e4e5d5] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.465 | WARNING  | [TraceID: bcd7b1a8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.465 | WARNING  | [TraceID: 7515b6ee] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.465 | WARNING  | [TraceID: 93b8a259] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.469 | INFO     | [TraceID: 7818b544] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.469 | INFO     | [TraceID: 8aefc306] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.469 | INFO     | [TraceID: 2435c15c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.470 | INFO     | [TraceID: e53bf4dd] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.470 | INFO     | [TraceID: 5ec3a790] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.526 | WARNING  | [TraceID: a2e62a39] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.526 | WARNING  | [TraceID: a6e8f98c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.526 | WARNING  | [TraceID: ebf7e536] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.527 | WARNING  | [TraceID: 0e5823fb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.527 | WARNING  | [TraceID: da575989] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.527 | WARNING  | [TraceID: 6277dacd] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.527 | WARNING  | [TraceID: 730b6852] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.527 | WARNING  | [TraceID: d987e1f0] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.534 | INFO     | [TraceID: 91b7a8ce] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.534 | INFO     | [TraceID: ca87d41a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.534 | INFO     | [TraceID: 66e0569e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.536 | INFO     | [TraceID: 2cf9a40c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.536 | INFO     | [TraceID: 3f0d8f6a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.537 | INFO     | [TraceID: 3b89f609] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.537 | INFO     | [TraceID: 4a5d8fa4] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.537 | INFO     | [TraceID: 79d8a761] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.566 | WARNING  | [TraceID: b45843c6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.567 | WARNING  | [TraceID: ab5d218a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.567 | WARNING  | [TraceID: a93a042b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.567 | WARNING  | [TraceID: d3274117] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.567 | WARNING  | [TraceID: 9edffada] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.571 | INFO     | [TraceID: 3d8ce077] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.572 | INFO     | [TraceID: 143dfa33] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.573 | INFO     | [TraceID: 3bc0c89f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.573 | INFO     | [TraceID: 13e04cde] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.574 | INFO     | [TraceID: e0a7a15b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.694 | WARNING  | [TraceID: 5ec3a790] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.694 | WARNING  | [TraceID: e53bf4dd] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.694 | WARNING  | [TraceID: 2435c15c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.694 | WARNING  | [TraceID: 8aefc306] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.694 | WARNING  | [TraceID: 7818b544] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.700 | INFO     | [TraceID: 3aa3628c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.700 | INFO     | [TraceID: 7ba30050] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.701 | INFO     | [TraceID: 6ea8f9ed] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.701 | INFO     | [TraceID: 830040ed] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.701 | INFO     | [TraceID: a1d84f47] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: 79d8a761] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: 4a5d8fa4] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: 3b89f609] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: 3f0d8f6a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: 2cf9a40c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: 66e0569e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: ca87d41a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.736 | WARNING  | [TraceID: 91b7a8ce] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.743 | INFO     | [TraceID: bf1b7ffc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.743 | INFO     | [TraceID: 81cee1a0] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.744 | INFO     | [TraceID: 42916da6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.745 | INFO     | [TraceID: 588f47bf] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.745 | INFO     | [TraceID: 528c707b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.745 | INFO     | [TraceID: 06c5eb45] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.745 | INFO     | [TraceID: 03c1f39c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.746 | INFO     | [TraceID: da47738e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.778 | WARNING  | [TraceID: e0a7a15b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.779 | WARNING  | [TraceID: 13e04cde] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.779 | WARNING  | [TraceID: 3bc0c89f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.779 | WARNING  | [TraceID: 143dfa33] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.782 | INFO     | [TraceID: 88509c0b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.783 | INFO     | [TraceID: 5fedb4fa] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.783 | INFO     | [TraceID: ba2893e1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.784 | INFO     | [TraceID: f078c2cc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.835 | WARNING  | [TraceID: a1d84f47] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.835 | WARNING  | [TraceID: 830040ed] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.835 | WARNING  | [TraceID: 6ea8f9ed] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.835 | WARNING  | [TraceID: 7ba30050] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.835 | WARNING  | [TraceID: 3aa3628c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.835 | WARNING  | [TraceID: 3d8ce077] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.840 | INFO     | [TraceID: 019522eb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.842 | INFO     | [TraceID: 4b80b7a6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.842 | INFO     | [TraceID: dd686f67] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.842 | INFO     | [TraceID: e2d0d569] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.843 | INFO     | [TraceID: 9b1134f4] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.843 | INFO     | [TraceID: 52884cfc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.873 | WARNING  | [TraceID: da47738e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.873 | WARNING  | [TraceID: 03c1f39c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.873 | WARNING  | [TraceID: 06c5eb45] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.873 | WARNING  | [TraceID: 528c707b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.873 | WARNING  | [TraceID: 588f47bf] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.873 | WARNING  | [TraceID: 42916da6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.873 | WARNING  | [TraceID: 81cee1a0] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.874 | WARNING  | [TraceID: bf1b7ffc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.879 | INFO     | [TraceID: cd6aa877] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.880 | INFO     | [TraceID: 19295fc6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.881 | INFO     | [TraceID: 4c26ea1f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.881 | INFO     | [TraceID: fc4373cb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.882 | INFO     | [TraceID: 644c8d49] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.882 | INFO     | [TraceID: 7aafec1a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.882 | INFO     | [TraceID: ba3c79cb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.882 | INFO     | [TraceID: 714ec487] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.915 | WARNING  | [TraceID: f078c2cc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.915 | WARNING  | [TraceID: ba2893e1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.916 | WARNING  | [TraceID: 5fedb4fa] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.916 | WARNING  | [TraceID: 88509c0b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:14.921 | INFO     | [TraceID: 65b58553] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.922 | INFO     | [TraceID: 69b48685] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.922 | INFO     | [TraceID: a758bfbc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:14.923 | INFO     | [TraceID: 798cb5f6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.327 | WARNING  | [TraceID: 714ec487] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.328 | WARNING  | [TraceID: ba3c79cb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.328 | WARNING  | [TraceID: 7aafec1a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.329 | WARNING  | [TraceID: 52884cfc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.329 | WARNING  | [TraceID: 9b1134f4] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.329 | WARNING  | [TraceID: e2d0d569] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.329 | WARNING  | [TraceID: dd686f67] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.330 | WARNING  | [TraceID: 4b80b7a6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.330 | WARNING  | [TraceID: 644c8d49] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.330 | WARNING  | [TraceID: fc4373cb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.330 | WARNING  | [TraceID: 4c26ea1f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.331 | WARNING  | [TraceID: 19295fc6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.331 | WARNING  | [TraceID: cd6aa877] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.352 | INFO     | [TraceID: a230d1a6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.354 | INFO     | [TraceID: a6186471] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.354 | INFO     | [TraceID: e2bc343f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.357 | WARNING  | [TraceID: 798cb5f6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.358 | WARNING  | [TraceID: a758bfbc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.358 | WARNING  | [TraceID: 69b48685] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.358 | WARNING  | [TraceID: 65b58553] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.358 | WARNING  | [TraceID: 019522eb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.367 | INFO     | [TraceID: d5b8d0db] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.368 | INFO     | [TraceID: 46a4a1ba] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.368 | INFO     | [TraceID: befe02d7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.369 | INFO     | [TraceID: aaa68cf3] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.369 | INFO     | [TraceID: 20fd6955] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.370 | INFO     | [TraceID: d9795a97] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.370 | INFO     | [TraceID: 7733b947] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.370 | INFO     | [TraceID: bd60213a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.371 | INFO     | [TraceID: 042dfc83] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.371 | INFO     | [TraceID: acf932eb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.372 | INFO     | [TraceID: 005e6eda] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.372 | INFO     | [TraceID: 27ac6795] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.373 | INFO     | [TraceID: 2ef2ec2e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.373 | INFO     | [TraceID: e54c2fa6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.374 | INFO     | [TraceID: e30e57aa] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.431 | WARNING  | [TraceID: e2bc343f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.431 | WARNING  | [TraceID: a6186471] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.432 | WARNING  | [TraceID: a230d1a6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.439 | INFO     | [TraceID: 966fd95d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.440 | INFO     | [TraceID: bf672a18] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.440 | INFO     | [TraceID: f7a382f8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.464 | WARNING  | [TraceID: acf932eb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.465 | WARNING  | [TraceID: 042dfc83] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.466 | WARNING  | [TraceID: bd60213a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.466 | WARNING  | [TraceID: 7733b947] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.466 | WARNING  | [TraceID: d9795a97] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.467 | WARNING  | [TraceID: 20fd6955] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.467 | WARNING  | [TraceID: aaa68cf3] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.467 | WARNING  | [TraceID: befe02d7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.467 | WARNING  | [TraceID: 46a4a1ba] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.486 | INFO     | [TraceID: 64998b67] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.487 | INFO     | [TraceID: 8d86022e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.488 | INFO     | [TraceID: 18200bc6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.489 | INFO     | [TraceID: 5575a70f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.489 | INFO     | [TraceID: 18abb383] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.490 | INFO     | [TraceID: 84839f7c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.490 | INFO     | [TraceID: 64f2f777] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.491 | INFO     | [TraceID: 52c4eabf] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.491 | INFO     | [TraceID: da8e009c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.508 | WARNING  | [TraceID: e30e57aa] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.508 | WARNING  | [TraceID: e54c2fa6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.508 | WARNING  | [TraceID: 2ef2ec2e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.509 | WARNING  | [TraceID: 27ac6795] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.509 | WARNING  | [TraceID: 005e6eda] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.509 | WARNING  | [TraceID: d5b8d0db] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.518 | INFO     | [TraceID: 1742101f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.519 | INFO     | [TraceID: 5d44b4a7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.520 | INFO     | [TraceID: 35f14ac7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.520 | INFO     | [TraceID: aa76c5c2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.521 | INFO     | [TraceID: 43259d71] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.521 | INFO     | [TraceID: 832b8288] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.572 | WARNING  | [TraceID: f7a382f8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.573 | WARNING  | [TraceID: bf672a18] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.573 | WARNING  | [TraceID: 966fd95d] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.576 | INFO     | [TraceID: 2a3d8474] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.576 | INFO     | [TraceID: 8818d069] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.577 | INFO     | [TraceID: e56e4524] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: da8e009c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 52c4eabf] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 64f2f777] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 84839f7c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 18abb383] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 5575a70f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 18200bc6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 8d86022e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.608 | WARNING  | [TraceID: 64998b67] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.614 | INFO     | [TraceID: 828545d3] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.615 | INFO     | [TraceID: ed554d8c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.616 | INFO     | [TraceID: 65e8dd6b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.616 | INFO     | [TraceID: 71b1ff1f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.617 | INFO     | [TraceID: 07de4217] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.617 | INFO     | [TraceID: da6e46c0] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.617 | INFO     | [TraceID: 39353dab] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.617 | INFO     | [TraceID: b74bb040] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.617 | INFO     | [TraceID: 78f78417] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.819 | WARNING  | [TraceID: 832b8288] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.819 | WARNING  | [TraceID: 43259d71] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.819 | WARNING  | [TraceID: aa76c5c2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.819 | WARNING  | [TraceID: 35f14ac7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.820 | WARNING  | [TraceID: 5d44b4a7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.826 | INFO     | [TraceID: e8d805ee] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.827 | INFO     | [TraceID: 8a7561e2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.828 | INFO     | [TraceID: b489e649] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.828 | INFO     | [TraceID: 875499a8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.828 | INFO     | [TraceID: fd21fea2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.883 | WARNING  | [TraceID: e56e4524] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.884 | WARNING  | [TraceID: 8818d069] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.884 | WARNING  | [TraceID: 2a3d8474] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.884 | WARNING  | [TraceID: 1742101f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.891 | INFO     | [TraceID: ef24624a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.891 | INFO     | [TraceID: bc4fe42d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.892 | INFO     | [TraceID: 8550a0ee] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.893 | INFO     | [TraceID: cdeca997] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.914 | WARNING  | [TraceID: 78f78417] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.914 | WARNING  | [TraceID: b74bb040] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.915 | WARNING  | [TraceID: 39353dab] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.915 | WARNING  | [TraceID: da6e46c0] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.915 | WARNING  | [TraceID: 07de4217] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.915 | WARNING  | [TraceID: 71b1ff1f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.915 | WARNING  | [TraceID: 65e8dd6b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.915 | WARNING  | [TraceID: ed554d8c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.915 | WARNING  | [TraceID: 828545d3] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.927 | INFO     | [TraceID: a5ef3ee0] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.928 | INFO     | [TraceID: 4d901b03] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.930 | INFO     | [TraceID: 05864257] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.930 | INFO     | [TraceID: d41da404] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.931 | INFO     | [TraceID: eab71ac8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.931 | INFO     | [TraceID: 1839e687] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.932 | INFO     | [TraceID: 7490ec67] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.932 | INFO     | [TraceID: 3fb055de] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.932 | INFO     | [TraceID: c11014d7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.938 | WARNING  | [TraceID: fd21fea2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.938 | WARNING  | [TraceID: 875499a8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.938 | WARNING  | [TraceID: b489e649] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.938 | WARNING  | [TraceID: 8a7561e2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.938 | WARNING  | [TraceID: e8d805ee] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.944 | INFO     | [TraceID: e228cd10] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.944 | INFO     | [TraceID: 63cacf28] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.945 | INFO     | [TraceID: 059acc85] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.945 | INFO     | [TraceID: 79bb15e4] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.946 | INFO     | [TraceID: 4773a01b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.960 | WARNING  | [TraceID: cdeca997] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.960 | WARNING  | [TraceID: 8550a0ee] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.961 | WARNING  | [TraceID: bc4fe42d] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.965 | INFO     | [TraceID: 58e56d2c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.965 | INFO     | [TraceID: bcae455e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.966 | INFO     | [TraceID: e8484aa8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.984 | WARNING  | [TraceID: c11014d7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.985 | WARNING  | [TraceID: 3fb055de] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.985 | WARNING  | [TraceID: 7490ec67] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.985 | WARNING  | [TraceID: 1839e687] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.985 | WARNING  | [TraceID: eab71ac8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.985 | WARNING  | [TraceID: d41da404] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.985 | WARNING  | [TraceID: 05864257] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.986 | WARNING  | [TraceID: 4d901b03] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.986 | WARNING  | [TraceID: a5ef3ee0] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.986 | WARNING  | [TraceID: ef24624a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:15.998 | INFO     | [TraceID: 48b20f01] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:15.999 | INFO     | [TraceID: c692f1bc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.000 | INFO     | [TraceID: a05540d8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.000 | INFO     | [TraceID: accbd9f8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.001 | INFO     | [TraceID: 73ecacfb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.003 | INFO     | [TraceID: 9dbb2b8a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.003 | INFO     | [TraceID: 94f7a96f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.004 | INFO     | [TraceID: 8523fdd2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.004 | INFO     | [TraceID: 1bebf1f7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.004 | INFO     | [TraceID: 0da988cd] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.005 | WARNING  | [TraceID: 4773a01b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.005 | WARNING  | [TraceID: 79bb15e4] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.005 | WARNING  | [TraceID: 059acc85] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.005 | WARNING  | [TraceID: 63cacf28] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.005 | WARNING  | [TraceID: e228cd10] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.010 | INFO     | [TraceID: 64fe08dc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.011 | INFO     | [TraceID: 22276038] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.011 | INFO     | [TraceID: dc7c9ac1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.012 | INFO     | [TraceID: 78935ccd] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.012 | INFO     | [TraceID: 683d8d3f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.023 | WARNING  | [TraceID: e8484aa8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.023 | WARNING  | [TraceID: bcae455e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.023 | WARNING  | [TraceID: 58e56d2c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.026 | INFO     | [TraceID: edb2a884] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.027 | INFO     | [TraceID: d8263071] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.027 | INFO     | [TraceID: 94123b76] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.050 | WARNING  | [TraceID: 1bebf1f7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.051 | WARNING  | [TraceID: 8523fdd2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.051 | WARNING  | [TraceID: 94f7a96f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.051 | WARNING  | [TraceID: 9dbb2b8a] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.051 | WARNING  | [TraceID: 73ecacfb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.051 | WARNING  | [TraceID: accbd9f8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.051 | WARNING  | [TraceID: a05540d8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.051 | WARNING  | [TraceID: c692f1bc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.057 | INFO     | [TraceID: ef3391fe] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.057 | INFO     | [TraceID: 375be108] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.058 | INFO     | [TraceID: c3516591] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.058 | INFO     | [TraceID: c1c74917] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.058 | INFO     | [TraceID: b3325823] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.058 | INFO     | [TraceID: 07315ba2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.059 | INFO     | [TraceID: 8386f7ab] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.059 | INFO     | [TraceID: de0f966b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.087 | WARNING  | [TraceID: 683d8d3f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.087 | WARNING  | [TraceID: 78935ccd] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.087 | WARNING  | [TraceID: dc7c9ac1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.087 | WARNING  | [TraceID: 22276038] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.087 | WARNING  | [TraceID: 64fe08dc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.087 | WARNING  | [TraceID: 0da988cd] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.087 | WARNING  | [TraceID: 48b20f01] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.091 | INFO     | [TraceID: 35fa3a05] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.092 | INFO     | [TraceID: e3e915f4] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.092 | INFO     | [TraceID: c2d9b94c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.092 | INFO     | [TraceID: eb1cf8d1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.093 | INFO     | [TraceID: 22e815e2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.093 | INFO     | [TraceID: 063429b5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.093 | INFO     | [TraceID: ebc38c43] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.126 | WARNING  | [TraceID: 94123b76] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.126 | WARNING  | [TraceID: d8263071] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.126 | WARNING  | [TraceID: edb2a884] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.130 | INFO     | [TraceID: aa9f5504] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.130 | INFO     | [TraceID: 29f328a6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.130 | INFO     | [TraceID: 63df33e4] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.316 | INFO     | [TraceID: 344db849] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:16.317 | WARNING  | [TraceID: de0f966b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.317 | WARNING  | [TraceID: 8386f7ab] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.317 | WARNING  | [TraceID: 07315ba2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.317 | WARNING  | [TraceID: b3325823] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.318 | WARNING  | [TraceID: c1c74917] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.318 | WARNING  | [TraceID: c3516591] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.318 | WARNING  | [TraceID: 375be108] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.318 | WARNING  | [TraceID: ef3391fe] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.323 | INFO     | [TraceID: bdfa8859] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.324 | INFO     | [TraceID: f50243da] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.324 | INFO     | [TraceID: 893e45ae] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.324 | INFO     | [TraceID: 941b77b3] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.325 | INFO     | [TraceID: 80f6dd45] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.325 | INFO     | [TraceID: 567d8176] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.325 | INFO     | [TraceID: 85f9e2bb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.326 | INFO     | [TraceID: e7844d4b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.341 | WARNING  | [TraceID: ebc38c43] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.342 | WARNING  | [TraceID: 063429b5] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.342 | WARNING  | [TraceID: 22e815e2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.342 | WARNING  | [TraceID: eb1cf8d1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.342 | WARNING  | [TraceID: c2d9b94c] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.342 | WARNING  | [TraceID: e3e915f4] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.346 | INFO     | [TraceID: eab44550] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.347 | INFO     | [TraceID: a81d513e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.347 | INFO     | [TraceID: 745f4c77] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.348 | INFO     | [TraceID: fd9f1fc5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.348 | INFO     | [TraceID: 5d6c0929] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.349 | INFO     | [TraceID: a1b2dc8d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.353 | WARNING  | [TraceID: 35fa3a05] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.355 | INFO     | [TraceID: 13f67cba] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.373 | WARNING  | [TraceID: 63df33e4] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.373 | INFO     | [TraceID: 29f328a6] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:16.374 | WARNING  | [TraceID: aa9f5504] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.374 | INFO     | [TraceID: 344db849] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:16.375 | INFO     | [TraceID: 344db849] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4479.49ms
+2026-10-16 10:50:16.376 | INFO     | [TraceID: 10dede33] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.378 | INFO     | [TraceID: 72c47664] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: e7844d4b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: 85f9e2bb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: 567d8176] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: 80f6dd45] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: 941b77b3] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: 893e45ae] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: f50243da] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.407 | WARNING  | [TraceID: bdfa8859] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.414 | INFO     | [TraceID: d2021716] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.414 | INFO     | [TraceID: 1d16d0a8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.415 | INFO     | [TraceID: 4143a669] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.415 | INFO     | [TraceID: 50df08e8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.431 | WARNING  | [TraceID: a1b2dc8d] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.431 | WARNING  | [TraceID: 5d6c0929] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.431 | WARNING  | [TraceID: fd9f1fc5] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.431 | WARNING  | [TraceID: 745f4c77] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.431 | WARNING  | [TraceID: a81d513e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.431 | WARNING  | [TraceID: eab44550] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.437 | INFO     | [TraceID: 48cc77c1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.438 | INFO     | [TraceID: dfa5fe8f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.455 | WARNING  | [TraceID: 72c47664] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.455 | WARNING  | [TraceID: 13f67cba] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.456 | WARNING  | [TraceID: 10dede33] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.460 | INFO     | [TraceID: 6f7a01ba] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.487 | WARNING  | [TraceID: 50df08e8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.488 | WARNING  | [TraceID: 4143a669] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.488 | WARNING  | [TraceID: 1d16d0a8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.488 | WARNING  | [TraceID: d2021716] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.534 | WARNING  | [TraceID: dfa5fe8f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.534 | WARNING  | [TraceID: 48cc77c1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.578 | WARNING  | [TraceID: 6f7a01ba] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.580 | INFO     | [TraceID: a70e18e2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.601 | WARNING  | [TraceID: a70e18e2] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.604 | INFO     | [TraceID: 4511925e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.637 | WARNING  | [TraceID: 4511925e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.640 | INFO     | [TraceID: 004a103f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.667 | WARNING  | [TraceID: 004a103f] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.669 | INFO     | [TraceID: c45d1abe] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.795 | WARNING  | [TraceID: c45d1abe] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.799 | INFO     | [TraceID: f503ebac] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.842 | WARNING  | [TraceID: f503ebac] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.846 | INFO     | [TraceID: ad03b0c6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.885 | WARNING  | [TraceID: ad03b0c6] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.890 | INFO     | [TraceID: f7ae7299] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:16.926 | WARNING  | [TraceID: f7ae7299] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:16.933 | INFO     | [TraceID: fc994ad5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:17.000 | WARNING  | [TraceID: fc994ad5] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:17.007 | INFO     | [TraceID: d1f62a66] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:17.037 | WARNING  | [TraceID: d1f62a66] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:17.043 | INFO     | [TraceID: b32fed3d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:17.062 | WARNING  | [TraceID: b32fed3d] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:17.066 | INFO     | [TraceID: 4f8a18f1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:17.091 | WARNING  | [TraceID: 4f8a18f1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:17.097 | INFO     | [TraceID: d814395b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:17.174 | WARNING  | [TraceID: d814395b] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:17.183 | INFO     | [TraceID: fb5c000e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:17.278 | WARNING  | [TraceID: fb5c000e] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:19.374 | INFO     | [TraceID: 29f328a6] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:19.441 | INFO     | [TraceID: 29f328a6] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:19.442 | INFO     | [TraceID: 29f328a6] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3311.59ms
+2026-10-16 10:50:19.444 | INFO     | [TraceID: 530e1db9] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:19.486 | INFO     | [TraceID: 530e1db9] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:21.931 | INFO     | [TraceID: 2273acb8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:22.487 | INFO     | [TraceID: 530e1db9] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:22.531 | INFO     | [TraceID: 530e1db9] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:22.533 | INFO     | [TraceID: 530e1db9] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3088.19ms
+2026-10-16 10:50:22.536 | INFO     | [TraceID: bf965f9e] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:22.637 | INFO     | [TraceID: bf965f9e] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:24.720 | WARNING  | [TraceID: 2273acb8] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:24.728 | INFO     | [TraceID: 3c7c7220] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:25.639 | INFO     | [TraceID: bf965f9e] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:25.696 | INFO     | [TraceID: bf965f9e] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:25.697 | WARNING  | [TraceID: 3c7c7220] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:25.698 | INFO     | [TraceID: bf965f9e] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3162.50ms
+2026-10-16 10:50:25.704 | INFO     | [TraceID: 662c0513] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:25.707 | INFO     | [TraceID: 89ab75ec] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:25.743 | WARNING  | [TraceID: 89ab75ec] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:25.744 | INFO     | [TraceID: 662c0513] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:25.752 | INFO     | [TraceID: 6f28fab5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:28.744 | INFO     | [TraceID: 662c0513] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:28.824 | INFO     | [TraceID: 662c0513] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:28.824 | WARNING  | [TraceID: 6f28fab5] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:28.825 | INFO     | [TraceID: 662c0513] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3121.44ms
+2026-10-16 10:50:28.828 | INFO     | [TraceID: 6a4527ad] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:28.829 | INFO     | [TraceID: 59168a00] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:28.911 | WARNING  | [TraceID: 59168a00] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:28.912 | INFO     | [TraceID: 6a4527ad] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:28.916 | INFO     | [TraceID: 835d28ea] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:31.486 | WARNING  | [TraceID: 835d28ea] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:31.493 | INFO     | [TraceID: 0333bedb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:31.536 | WARNING  | [TraceID: 0333bedb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:31.544 | INFO     | [TraceID: c0035295] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:31.775 | WARNING  | [TraceID: c0035295] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:31.782 | INFO     | [TraceID: 198a03ce] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:31.913 | INFO     | [TraceID: 6a4527ad] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:31.920 | WARNING  | [TraceID: 198a03ce] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:31.928 | INFO     | [TraceID: 85392d4c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:31.961 | INFO     | [TraceID: 6a4527ad] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:31.962 | INFO     | [TraceID: 6a4527ad] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3133.78ms
+2026-10-16 10:50:31.964 | INFO     | [TraceID: 3ae792a7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:31.996 | WARNING  | [TraceID: 3ae792a7] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:31.997 | INFO     | [TraceID: 85392d4c] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:32.002 | INFO     | [TraceID: 2ffe0bfc] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:32.154 | WARNING  | [TraceID: 2ffe0bfc] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:34.998 | INFO     | [TraceID: 85392d4c] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:35.731 | INFO     | [TraceID: 85392d4c] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:35.731 | INFO     | [TraceID: 85392d4c] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3803.77ms
+2026-10-16 10:50:35.733 | INFO     | [TraceID: a081e60a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:38.316 | INFO     | [TraceID: a081e60a] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:41.317 | INFO     | [TraceID: a081e60a] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:42.499 | INFO     | [TraceID: a081e60a] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:42.500 | INFO     | [TraceID: a081e60a] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 6766.57ms
+2026-10-16 10:50:42.502 | INFO     | [TraceID: 2f280f4a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:49.265 | INFO     | [TraceID: 2f280f4a] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:52.267 | INFO     | [TraceID: 2f280f4a] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:52.293 | INFO     | [TraceID: 2f280f4a] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:52.294 | INFO     | [TraceID: 2f280f4a] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 9791.73ms
+2026-10-16 10:50:54.543 | INFO     | [TraceID: c68fd2f1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:54.749 | INFO     | [TraceID: 12e85d8d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:54.772 | WARNING  | [TraceID: 12e85d8d] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:54.772 | INFO     | [TraceID: c68fd2f1] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:50:54.945 | INFO     | [TraceID: 7b98abb9] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:55.145 | INFO     | [TraceID: 8844fea1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:55.175 | WARNING  | [TraceID: 8844fea1] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:55.175 | WARNING  | [TraceID: 7b98abb9] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:55.346 | INFO     | [TraceID: 59ffb4fb] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:50:56.486 | WARNING  | [TraceID: 59ffb4fb] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 10:50:57.773 | INFO     | [TraceID: c68fd2f1] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:50:59.071 | INFO     | [TraceID: c68fd2f1] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:50:59.072 | INFO     | [TraceID: c68fd2f1] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4528.83ms
+2026-10-16 10:50:59.075 | INFO     | [TraceID: 24ad4bfd] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:51:03.254 | INFO     | [TraceID: 24ad4bfd] | app.api.v1.app_router:submitOrder:99 - start a new order_id123
+2026-10-16 10:51:06.256 | INFO     | [TraceID: 24ad4bfd] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:51:10.020 | INFO     | [TraceID: 24ad4bfd] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:51:10.022 | INFO     | [TraceID: 24ad4bfd] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 10947.24ms
+2026-10-16 10:53:41.073 | INFO     | [TraceID: 56a11b62] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:53:41.115 | INFO     | [TraceID: 56a11b62] | app.api.v1.app_router:submitOrder:99 - start a new order_id1001
+2026-10-16 10:53:44.115 | INFO     | [TraceID: 56a11b62] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:53:45.309 | INFO     | [TraceID: 56a11b62] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:53:45.311 | INFO     | [TraceID: 56a11b62] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4238.31ms
+2026-10-16 10:55:02.571 | INFO     | [TraceID: 15017eed] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:55:02.606 | INFO     | [TraceID: 15017eed] | app.api.v1.app_router:submitOrder:99 - start a new order_id1002
+2026-10-16 10:55:02.781 | INFO     | [TraceID: b319e239] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 10:55:02.843 | WARNING  | [TraceID: b319e239] | app.api.v1.app_router:submitOrder:95 - ⚠️：the 1002 is dealing to db,trigger the repeat warning
+2026-10-16 10:55:05.609 | INFO     | [TraceID: 15017eed] | app.api.v1.app_router:submitOrder:101 - successful work!
+2026-10-16 10:55:06.797 | INFO     | [TraceID: 15017eed] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 10:55:06.799 | INFO     | [TraceID: 15017eed] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4228.40ms
+2026-10-16 10:55:40.133 | INFO     | [TraceID: ac66c9cb] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:55:40.256 | INFO     | [TraceID: ac66c9cb] | app.api.v1.app_router:list_dishes_with_cache:60 - the result for redis:None
+2026-10-16 10:55:40.258 | INFO     | [TraceID: ac66c9cb] | app.api.v1.app_router:list_dishes_with_cache:63 - start with query from db
+2026-10-16 10:55:40.266 | INFO     | [TraceID: ac66c9cb] | app.api.v1.app_router:list_dishes_with_cache:65 - SQL is ready:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1
+2026-10-16 10:55:51.247 | INFO     | [TraceID: ac66c9cb] | app.api.v1.app_router:list_dishes_with_cache:67 - execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10bcafa90>
+2026-10-16 10:55:51.270 | INFO     | [TraceID: ac66c9cb] | app.api.v1.app_router:list_dishes_with_cache:77 - the sql result has been write into redis.
+2026-10-16 10:55:58.076 | INFO     | [TraceID: ac66c9cb] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 17942.38ms
+2026-10-16 10:56:19.405 | INFO     | [TraceID: e273f345] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_redis
+2026-10-16 10:56:19.433 | INFO     | [TraceID: e273f345] | app.api.v1.app_router:list_dishes_with_cache:60 - the result for redis:{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:56:19.433 | INFO     | [TraceID: e273f345] | app.api.v1.app_router:list_dishes_with_cache:79 - return redis query result directly!{"total": 3, "data": [{"id": 1, "name": "\u8fa3\u5b50\u9e21", "price": 48.0, "status": 1}, {"id": 2, "name": "\u51c9\u62cc\u9ec4\u74dc", "price": 12.0, "status": 1}, {"id": 3, "name": "\u7c73\u996d", "price": 2.0, "status": 1}]}
+2026-10-16 10:56:19.434 | INFO     | [TraceID: e273f345] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_redis - 状态: 200 - 耗时: 28.52ms
+2026-10-16 11:03:58.274 | INFO     | [TraceID: 826628e5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:03:58.466 | INFO     | [TraceID: 1d18a0fa] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:03:58.491 | INFO     | [TraceID: 826628e5] | app.api.v1.app_router:submitOrder:98 - start a new order_id2001
+2026-10-16 11:03:58.727 | WARNING  | [TraceID: 1d18a0fa] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 2001 is dealing to db,trigger the repeat warning
+2026-10-16 11:03:58.728 | INFO     | [TraceID: 1d18a0fa] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 262.15ms
+2026-10-16 11:04:01.491 | INFO     | [TraceID: 826628e5] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:04:02.536 | INFO     | [TraceID: 826628e5] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:04:02.538 | INFO     | [TraceID: 826628e5] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4263.98ms
+2026-10-16 11:05:13.604 | INFO     | [TraceID: a0731f82] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:13.785 | INFO     | [TraceID: 7cb705a8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:13.913 | INFO     | [TraceID: a0731f82] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:05:13.987 | INFO     | [TraceID: 3f3d9a04] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:14.030 | WARNING  | [TraceID: 3f3d9a04] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:14.031 | INFO     | [TraceID: 3f3d9a04] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 44.86ms
+2026-10-16 11:05:14.034 | INFO     | [TraceID: cc0b6ba5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:14.067 | WARNING  | [TraceID: 7cb705a8] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:14.068 | INFO     | [TraceID: 7cb705a8] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 282.96ms
+2026-10-16 11:05:14.070 | INFO     | [TraceID: 1acf56a9] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:14.100 | WARNING  | [TraceID: cc0b6ba5] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:14.101 | INFO     | [TraceID: cc0b6ba5] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 66.29ms
+2026-10-16 11:05:14.183 | INFO     | [TraceID: 954c83f3] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:14.212 | WARNING  | [TraceID: 954c83f3] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:14.213 | WARNING  | [TraceID: 1acf56a9] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:14.213 | INFO     | [TraceID: 954c83f3] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 29.77ms
+2026-10-16 11:05:14.214 | INFO     | [TraceID: 1acf56a9] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 143.78ms
+2026-10-16 11:05:14.215 | INFO     | [TraceID: 9f203799] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:14.300 | WARNING  | [TraceID: 9f203799] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:14.301 | INFO     | [TraceID: 9f203799] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 85.61ms
+2026-10-16 11:05:14.384 | INFO     | [TraceID: 871d5036] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:14.678 | WARNING  | [TraceID: 871d5036] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:14.679 | INFO     | [TraceID: 871d5036] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 295.13ms
+2026-10-16 11:05:14.680 | INFO     | [TraceID: 7aaec36d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:15.290 | WARNING  | [TraceID: 7aaec36d] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:05:15.291 | INFO     | [TraceID: 7aaec36d] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 610.42ms
+2026-10-16 11:05:16.914 | INFO     | [TraceID: a0731f82] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:05:17.876 | INFO     | [TraceID: a0731f82] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:05:17.878 | INFO     | [TraceID: a0731f82] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4273.26ms
+2026-10-16 11:05:17.881 | INFO     | [TraceID: 10936a49] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:05:20.462 | INFO     | [TraceID: 10936a49] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:05:23.464 | INFO     | [TraceID: 10936a49] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:05:24.645 | INFO     | [TraceID: 10936a49] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:05:24.646 | INFO     | [TraceID: 10936a49] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 6765.59ms
+2026-10-16 11:06:46.584 | INFO     | [TraceID: f9a193b2] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:46.629 | INFO     | [TraceID: f9a193b2] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:06:46.788 | INFO     | [TraceID: 73a2e6f4] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:46.868 | WARNING  | [TraceID: 73a2e6f4] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:46.869 | INFO     | [TraceID: 73a2e6f4] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 81.24ms
+2026-10-16 11:06:46.870 | INFO     | [TraceID: 45ac0d49] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:46.985 | INFO     | [TraceID: b6edf6ef] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:47.008 | WARNING  | [TraceID: b6edf6ef] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:47.009 | WARNING  | [TraceID: 45ac0d49] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:47.009 | INFO     | [TraceID: b6edf6ef] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 23.96ms
+2026-10-16 11:06:47.009 | INFO     | [TraceID: 45ac0d49] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 139.15ms
+2026-10-16 11:06:47.010 | INFO     | [TraceID: e0675d61] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:47.185 | INFO     | [TraceID: 8eb5e8f8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:47.209 | WARNING  | [TraceID: 8eb5e8f8] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:47.209 | WARNING  | [TraceID: e0675d61] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:47.210 | INFO     | [TraceID: 8eb5e8f8] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 24.39ms
+2026-10-16 11:06:47.210 | INFO     | [TraceID: e0675d61] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 199.61ms
+2026-10-16 11:06:47.211 | INFO     | [TraceID: b55aa75d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:47.247 | WARNING  | [TraceID: b55aa75d] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:47.248 | INFO     | [TraceID: b55aa75d] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 36.83ms
+2026-10-16 11:06:47.388 | INFO     | [TraceID: b6f45919] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:47.626 | WARNING  | [TraceID: b6f45919] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:47.627 | INFO     | [TraceID: b6f45919] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 239.00ms
+2026-10-16 11:06:47.628 | INFO     | [TraceID: 04a448bf] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:48.237 | WARNING  | [TraceID: 04a448bf] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:06:48.238 | INFO     | [TraceID: 04a448bf] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 609.96ms
+2026-10-16 11:06:49.631 | INFO     | [TraceID: f9a193b2] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:06:50.824 | INFO     | [TraceID: f9a193b2] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:06:50.825 | INFO     | [TraceID: f9a193b2] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4241.01ms
+2026-10-16 11:06:50.828 | INFO     | [TraceID: 09e4ba90] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:06:53.409 | INFO     | [TraceID: 09e4ba90] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:06:56.411 | INFO     | [TraceID: 09e4ba90] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:06:57.592 | INFO     | [TraceID: 09e4ba90] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:06:57.593 | INFO     | [TraceID: 09e4ba90] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 6765.25ms
+2026-10-16 11:07:09.395 | INFO     | [TraceID: 0d737727] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:09.428 | INFO     | [TraceID: 0d737727] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:07:09.601 | INFO     | [TraceID: 1388eb3b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:09.802 | INFO     | [TraceID: 5e36b177] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:09.811 | WARNING  | [TraceID: 1388eb3b] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:09.812 | INFO     | [TraceID: 1388eb3b] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 211.34ms
+2026-10-16 11:07:09.813 | INFO     | [TraceID: 3cc4bb91] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:09.826 | WARNING  | [TraceID: 5e36b177] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:09.827 | INFO     | [TraceID: 5e36b177] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 25.57ms
+2026-10-16 11:07:09.829 | INFO     | [TraceID: 6db1fb35] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:09.862 | WARNING  | [TraceID: 6db1fb35] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:09.862 | WARNING  | [TraceID: 3cc4bb91] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:09.863 | INFO     | [TraceID: 6db1fb35] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 33.80ms
+2026-10-16 11:07:09.864 | INFO     | [TraceID: 3cc4bb91] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 50.32ms
+2026-10-16 11:07:10.002 | INFO     | [TraceID: a8f72401] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:10.046 | WARNING  | [TraceID: a8f72401] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:10.047 | INFO     | [TraceID: a8f72401] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 44.85ms
+2026-10-16 11:07:10.049 | INFO     | [TraceID: 3d91b52c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:10.202 | INFO     | [TraceID: f50393b8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:10.230 | WARNING  | [TraceID: f50393b8] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:10.230 | WARNING  | [TraceID: 3d91b52c] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:10.231 | INFO     | [TraceID: f50393b8] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 29.32ms
+2026-10-16 11:07:10.231 | INFO     | [TraceID: 3d91b52c] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 182.29ms
+2026-10-16 11:07:10.233 | INFO     | [TraceID: 2106750a] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:10.425 | WARNING  | [TraceID: 2106750a] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:07:10.426 | INFO     | [TraceID: 2106750a] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 193.47ms
+2026-10-16 11:07:12.430 | INFO     | [TraceID: 0d737727] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:07:13.622 | INFO     | [TraceID: 0d737727] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:07:13.623 | INFO     | [TraceID: 0d737727] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 4227.59ms
+2026-10-16 11:07:13.625 | INFO     | [TraceID: 06873013] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:07:16.206 | INFO     | [TraceID: 06873013] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:07:19.207 | INFO     | [TraceID: 06873013] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:07:20.388 | INFO     | [TraceID: 06873013] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:07:20.389 | INFO     | [TraceID: 06873013] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 6763.82ms
+2026-10-16 11:08:49.886 | INFO     | [TraceID: 5fb95e91] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:49.917 | INFO     | [TraceID: 5fb95e91] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:08:50.091 | INFO     | [TraceID: 1fe2b60b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.155 | WARNING  | [TraceID: 1fe2b60b] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.156 | INFO     | [TraceID: 1fe2b60b] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 65.61ms
+2026-10-16 11:08:50.158 | INFO     | [TraceID: 111b7117] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.291 | INFO     | [TraceID: c7cf54b7] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.299 | WARNING  | [TraceID: 111b7117] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.300 | INFO     | [TraceID: 111b7117] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 142.00ms
+2026-10-16 11:08:50.370 | WARNING  | [TraceID: c7cf54b7] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.371 | INFO     | [TraceID: c7cf54b7] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 79.85ms
+2026-10-16 11:08:50.372 | INFO     | [TraceID: aa068271] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.406 | WARNING  | [TraceID: aa068271] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.407 | INFO     | [TraceID: aa068271] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 34.90ms
+2026-10-16 11:08:50.488 | INFO     | [TraceID: 8ee45daa] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.523 | WARNING  | [TraceID: 8ee45daa] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.524 | INFO     | [TraceID: 8ee45daa] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 35.56ms
+2026-10-16 11:08:50.525 | INFO     | [TraceID: 867487b1] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.559 | WARNING  | [TraceID: 867487b1] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.560 | INFO     | [TraceID: 867487b1] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 34.97ms
+2026-10-16 11:08:50.690 | INFO     | [TraceID: 7b46ce9f] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.724 | WARNING  | [TraceID: 7b46ce9f] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.724 | INFO     | [TraceID: 7b46ce9f] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 34.16ms
+2026-10-16 11:08:50.727 | INFO     | [TraceID: eddae47b] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:50.750 | WARNING  | [TraceID: eddae47b] | app.api.v1.app_router:submitOrder:94 - ⚠️：the 123 is dealing to db,trigger the repeat warning
+2026-10-16 11:08:50.751 | INFO     | [TraceID: eddae47b] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 409 - 耗时: 24.34ms
+2026-10-16 11:08:52.919 | INFO     | [TraceID: 5fb95e91] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:08:53.049 | INFO     | [TraceID: 5fb95e91] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:08:53.050 | INFO     | [TraceID: 5fb95e91] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3163.53ms
+2026-10-16 11:08:53.052 | INFO     | [TraceID: 1caff139] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders/submit
+2026-10-16 11:08:53.078 | INFO     | [TraceID: 1caff139] | app.api.v1.app_router:submitOrder:98 - start a new order_id123
+2026-10-16 11:08:56.080 | INFO     | [TraceID: 1caff139] | app.api.v1.app_router:submitOrder:100 - successful work!
+2026-10-16 11:08:56.154 | INFO     | [TraceID: 1caff139] | app.api.v1.app_router:submitOrder:104 - the lock has been released successful!
+2026-10-16 11:08:56.155 | INFO     | [TraceID: 1caff139] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders/submit - 状态: 200 - 耗时: 3102.41ms
+2026-10-16 11:38:04.785 | INFO     | [TraceID: 356ebe54] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 11:38:04.786 | INFO     | [TraceID: 356ebe54] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.32ms
+2026-10-16 11:38:04.854 | INFO     | [TraceID: ff6bfb1b] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 11:38:04.858 | INFO     | [TraceID: ff6bfb1b] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 4.72ms
+2026-10-16 11:38:12.376 | INFO     | [TraceID: d0b76f1f] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_dep
+2026-10-16 11:38:16.772 | INFO     | [TraceID: d0b76f1f] | app.api.v1.app_router:list_dishes_dep:59 - stmt sql:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1,execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10b7e5450>
+2026-10-16 11:38:16.774 | INFO     | [TraceID: d0b76f1f] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_dep - 状态: 200 - 耗时: 4397.64ms
+2026-10-16 11:40:11.687 | INFO     | [TraceID: 93437f7e] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/dishes_dep
+2026-10-16 11:40:11.769 | INFO     | [TraceID: 93437f7e] | app.api.v1.app_router:list_dishes_dep:59 - stmt sql:SELECT dish.id, dish.name, dish.price, dish.status, dish.category_id 
+FROM dish
+ LIMIT :param_1,execute sql successful: <sqlalchemy.engine.result.ChunkedIteratorResult object at 0x10b7e6c90>
+2026-10-16 11:40:11.770 | INFO     | [TraceID: 93437f7e] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/dishes_dep - 状态: 200 - 耗时: 83.95ms
+2026-10-16 14:05:21.933 | INFO     | [TraceID: a44e4a02] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 14:05:21.934 | INFO     | [TraceID: a44e4a02] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.16ms
+2026-10-16 14:05:22.015 | INFO     | [TraceID: 36e499ec] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 14:05:22.025 | INFO     | [TraceID: 36e499ec] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 9.98ms
+2026-10-16 14:05:34.936 | INFO     | [TraceID: 5bd49f3c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:05:34.939 | INFO     | [TraceID: 5bd49f3c] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 400 - 耗时: 3.51ms
+2026-10-16 14:05:45.602 | INFO     | [TraceID: 8ca1952d] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:05:45.605 | INFO     | [TraceID: 8ca1952d] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 3.20ms
+2026-10-16 14:06:01.493 | INFO     | [TraceID: fcfdf6ed] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:06:01.495 | INFO     | [TraceID: fcfdf6ed] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/me - 状态: 401 - 耗时: 1.71ms
+2026-10-16 14:06:29.886 | INFO     | [TraceID: c0a00ef5] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/admin/dishes
+2026-10-16 14:06:29.888 | INFO     | [TraceID: c0a00ef5] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/admin/dishes - 状态: 401 - 耗时: 2.33ms
+2026-10-16 14:07:41.053 | INFO     | [TraceID: 420ff852] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:07:41.059 | INFO     | [TraceID: 420ff852] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 5.98ms
+2026-10-16 14:07:42.782 | INFO     | [TraceID: ac768978] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:07:42.784 | INFO     | [TraceID: ac768978] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 1.85ms
+2026-10-16 14:07:51.757 | INFO     | [TraceID: 9b028b69] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:07:51.758 | INFO     | [TraceID: 9b028b69] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/me - 状态: 401 - 耗时: 1.52ms
+2026-10-16 14:07:52.783 | INFO     | [TraceID: 3b2b2666] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:07:52.784 | INFO     | [TraceID: 3b2b2666] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/me - 状态: 401 - 耗时: 0.81ms
+2026-10-16 14:07:52.960 | INFO     | [TraceID: 4e1e2771] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:07:52.961 | INFO     | [TraceID: 4e1e2771] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/me - 状态: 401 - 耗时: 0.85ms
+2026-10-16 14:08:18.080 | INFO     | [TraceID: d2b326b9] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:08:18.083 | INFO     | [TraceID: d2b326b9] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 3.38ms
+2026-10-16 14:08:23.725 | INFO     | [TraceID: 8e289a56] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:08:23.728 | INFO     | [TraceID: 8e289a56] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 2.81ms
+2026-10-16 14:08:31.001 | INFO     | [TraceID: fbfb36da] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:08:31.003 | INFO     | [TraceID: fbfb36da] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/me - 状态: 401 - 耗时: 1.53ms
+2026-10-16 14:08:45.983 | INFO     | [TraceID: e3273c39] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:08:45.985 | INFO     | [TraceID: e3273c39] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 2.01ms
+2026-10-16 14:08:45.994 | INFO     | [TraceID: 9758c7f1] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:12:23.505 | INFO     | [TraceID: 6282c479] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 14:12:23.506 | INFO     | [TraceID: 6282c479] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.00ms
+2026-10-16 14:12:23.556 | INFO     | [TraceID: ed6d8dd8] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 14:12:23.562 | INFO     | [TraceID: ed6d8dd8] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 6.16ms
+2026-10-16 14:12:28.660 | INFO     | [TraceID: b1eb0581] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:12:28.661 | INFO     | [TraceID: b1eb0581] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/me - 状态: 401 - 耗时: 1.61ms
+2026-10-16 14:14:49.272 | INFO     | [TraceID: c0c0ade0] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:14:49.277 | INFO     | [TraceID: c0c0ade0] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 5.44ms
+2026-10-16 14:14:49.290 | INFO     | [TraceID: 88bc86de] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/me
+2026-10-16 14:14:49.292 | INFO     | [TraceID: 88bc86de] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/me - 状态: 200 - 耗时: 1.28ms
+2026-10-16 14:14:49.299 | INFO     | [TraceID: b1e8720c] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/admin/dishes
+2026-10-16 14:14:49.300 | INFO     | [TraceID: b1e8720c] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/admin/dishes - 状态: 403 - 耗时: 1.08ms
+2026-10-16 14:14:49.307 | INFO     | [TraceID: 2e5dfef8] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 14:14:49.308 | INFO     | [TraceID: 2e5dfef8] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 0.84ms
+2026-10-16 14:14:49.317 | INFO     | [TraceID: 869ba5c6] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/admin/dishes
+2026-10-16 14:14:49.318 | INFO     | [TraceID: 869ba5c6] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/admin/dishes - 状态: 200 - 耗时: 0.83ms
+2026-10-16 15:26:18.463 | INFO     | [TraceID: 8b4c0b0a] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 15:26:18.465 | INFO     | [TraceID: 8b4c0b0a] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 1.36ms
+2026-10-16 15:26:18.532 | INFO     | [TraceID: 29c41d66] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 15:26:18.544 | INFO     | [TraceID: 29c41d66] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 11.83ms
+2026-10-16 15:26:27.306 | INFO     | [TraceID: b8aed109] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/orders
+2026-10-16 15:26:27.309 | INFO     | [TraceID: b8aed109] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/orders - 状态: 401 - 耗时: 3.62ms
+2026-10-16 15:54:23.708 | INFO     | [TraceID: 434854b3] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/healthz
+2026-10-16 15:54:23.710 | INFO     | [TraceID: 434854b3] | app.api.v1.endpoints.system:check_health:10 - 正在执行健康检查探针逻辑...
+2026-10-16 15:54:23.711 | INFO     | [TraceID: 434854b3] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/healthz - 状态: 200 - 耗时: 3.04ms
+2026-10-16 15:54:44.560 | INFO     | [TraceID: 3e79b2c3] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 15:54:44.566 | INFO     | [TraceID: 3e79b2c3] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 5.54ms
+2026-10-16 15:55:28.912 | INFO     | [TraceID: 39a33479] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/login
+2026-10-16 15:55:28.915 | INFO     | [TraceID: 39a33479] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/login - 状态: 200 - 耗时: 3.49ms
+2026-10-16 15:55:28.923 | INFO     | [TraceID: 4041e150] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/tasks/agent-report
+2026-10-16 15:55:29.953 | INFO     | [TraceID: 9d7e17fd] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/tasks/
+2026-10-16 15:55:29.954 | INFO     | [TraceID: 9d7e17fd] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/tasks/ - 状态: 404 - 耗时: 1.05ms
+2026-10-16 15:55:32.483 | INFO     | [TraceID: e4fab0c8] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/tasks/
+2026-10-16 15:55:32.484 | INFO     | [TraceID: e4fab0c8] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/tasks/ - 状态: 404 - 耗时: 1.29ms
+2026-10-16 15:55:37.019 | INFO     | [TraceID: 1236bf98] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /api/v1/tasks/
+2026-10-16 15:55:37.020 | INFO     | [TraceID: 1236bf98] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /api/v1/tasks/ - 状态: 404 - 耗时: 1.28ms
+2026-10-16 16:01:46.046 | INFO     | [TraceID: 355fcade] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /docs
+2026-10-16 16:01:46.050 | INFO     | [TraceID: 355fcade] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /docs - 状态: 200 - 耗时: 4.78ms
+2026-10-16 16:01:46.119 | INFO     | [TraceID: fa441bf3] | app.main:trace_id_middleware:21 - 🌐 请求开始: GET /openapi.json
+2026-10-16 16:01:46.121 | INFO     | [TraceID: fa441bf3] | app.main:trace_id_middleware:26 - 🏁 请求结束: GET /openapi.json - 状态: 200 - 耗时: 1.33ms
+2026-10-16 16:01:58.535 | INFO     | [TraceID: ac2694a3] | app.main:trace_id_middleware:21 - 🌐 请求开始: POST /api/v1/tasks/agent-report
+2026-10-16 16:01:58.539 | INFO     | [TraceID: ac2694a3] | app.main:trace_id_middleware:26 - 🏁 请求结束: POST /api/v1/tasks/agent-report - 状态: 401 - 耗时: 5.10ms

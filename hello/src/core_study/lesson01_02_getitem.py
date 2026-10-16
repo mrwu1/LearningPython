@@ -11,12 +11,13 @@ class SkyTakeoutMenu:
         self._dishes.append(dish)
         self._name_map[dish.name] = dish
 
+    # MAGIC -
     def __len__(self)->int:
         #TODO: 外部支持len
         return len(self._dishes)
 
     def __getitem__(self, key:int|str|slice):
-        # TODO: 2. 核心重载！
+        # TODO: 2. 核心重载！ - 违反多态 ⚠️
         if isinstance(key,str):
             result = self._name_map.get(key)
             if not result:

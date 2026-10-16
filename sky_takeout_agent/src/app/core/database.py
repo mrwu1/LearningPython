@@ -1,5 +1,6 @@
 from typing import AsyncGenerator
 
+from sqlalchemy import URL
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 from sqlalchemy.orm import DeclarativeBase
 
@@ -7,10 +8,20 @@ from app.core.config import settings
 
 # 1. 拼接异步 MySQL 连接串：mysql+asyncmy://user:pass@host:port/dbname
 
-DATABASE_URL = (
-    f"mysql+asyncmy://{settings.DB_USER}:{settings.DB_PASSWORD}"
-    f"@{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}?charset=utf8mb4"
-)
+# DATABASE_URL = (
+#     f"mysql+asyncmy://{settings.DB_USER}:{settings.DB_PASSWORD}"
+#     f"@{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}?charset=utf8mb4"
+# )
+# ❌不要自己手动拼 URL 字符串！使用 SQLAlchemy 官方提供的 URL.create()，它会自动把特殊字符安全转义（把 @ 转为 %40）：
+DATABASE_URL = URL.create(
+        drivername="mysql+asyncmy",
+        username=settings.DB_USER,
+        password=settings.DB_PASSWORD,  # 🌟 自动对密码做 URL 安全编码！
+        host=settings.DB_HOST,
+        port=settings.DB_PORT,
+        database=settings.DB_NAME,
+        query={"charset": "utf8mb4"}
+    )
 
 # 2. 创建企业级异步连接池引擎（对标 HikariCP）‼️
 

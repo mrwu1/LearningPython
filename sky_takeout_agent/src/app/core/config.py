@@ -17,6 +17,19 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
 
+    # 2.1 redis config
+    REDIS_HOST:str
+    REDIS_PORT:int
+    REDIS_PASSWORD:str
+    REDIS_DB:int
+    DECORD_RESPONSE:bool
+    MAX_CONNECTIONS:int
+
+    # 2.2 jwt
+    JWT_SECRET_KEY:str
+    JWT_ALGORITHM:str
+    ACCESS_TOKEN_EXPIRE_MINUTES:int
+
     # 3. 密钥类配置（使用 SecretStr 保护）
     OPENAI_API_KEY: SecretStr
 
