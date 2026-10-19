@@ -41,7 +41,7 @@ def admin_approval_node(state: RefundState)->dict:
         return {"final_result": "your refund apply was rejected. sorry"}
 
 # 3. define the conditional Edge:
-def decide_refund_branch(state:RefundState)->Literal["auto_refund","admin_approval"]:
+def my_route(state:RefundState)->Literal["auto_refund","admin_approval"]:
     logger.info("[Edge - 1] decide_refund_branch start")
     if state.get("risk_level") == "LOW":
         return "auto_refund"
@@ -63,7 +63,7 @@ def create_refund_workflow():
     # ‼️
     builder.add_conditional_edges(
         "evaluate",
-        decide_refund_branch,
+        my_route,
         {
             "auto_refund": "auto_refund",
             "admin_approval": "admin_approval"
@@ -113,7 +113,6 @@ if __name__ == "__main__":
     logger.info("\n🏁 【最终业务结果】")
     logger.info(final_output)
 
-    # display(app_graph)
 
 
 
