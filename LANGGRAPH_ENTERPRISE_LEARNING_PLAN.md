@@ -201,7 +201,7 @@ flowchart TD
 ---
 
 ### 阶段七：多智能体编排 (Multi-Agent) 与企业全真交付（约 7 课时）
-> **目标**：融会贯通，直接赋能真实业务，完成从零到一的企业级 Agent 交付与评估上线。
+> **目标**：融会贯通，直接赋能真实业务，完成从零到一的 Agent 编排机制、隔离单测与评估门禁。
 
 * **7.1 多智能体架构对比与选型**
   * 监督者模式（Supervisor） vs 扁平对等网络（Network / Handoffs）实现与权衡。
@@ -209,8 +209,33 @@ flowchart TD
   * 脱离真实大模型的高速 Mock 单测：2 秒内跑完复杂状态图的所有条件分支与异常路径。
 * **7.3 企业级 Agent 评估门禁（Evals & LLM-as-a-Judge）**
   * 构建黄金基准评测集（Golden Dataset），量化评估工具调用召回率与忠实度。
-* **7.4 🔥 最终实战：苍穹外卖智能体（Sky Takeout Agent）全真落地**
-  * 整合点餐、菜品推荐、改单、差评退款审批全链路，打通 Postgres 持久化、Redis 并发锁与 FastAPI SSE 网关。
+* **7.4 苍穹外卖智能体原型验证（Sky Takeout Agent Core Logic）**
+  * 在状态机内部跑通点餐、物流追踪、大额退款动态审批 `interrupt()` 与 Supervisor 终态守卫的核心逻辑闭环。
+
+---
+
+### 阶段八：工业级全栈工程重构与生产交付（The Real-World Enterprise Production System）（约 6 课时）
+> **目标**：彻底告别单文件 Demo 与内存模拟，依托 `sky_takeout_agent` 真实微服务架构，打通真实数据库表、真实分布式中间件、Clean Architecture 分层与 Docker 容器化编排。
+
+* **8.1 领域模型设计与数据库持久化（Domain Models & Alembic DDL）**
+  * 彻底废弃内存字典，设计 MySQL 真实业务表：菜品库存表 (`dish`)、订单表 (`orders`)、退款幂等流水表 (`refund_ledger`)。
+  * 编写 Alembic 版本化迁移脚本执行 DDL 变更，保障表结构审计与回滚能力。
+  * 封装 SQLAlchemy 异步仓储层 (`DishRepository`, `RefundRepository`)，实装行级排他锁与事务 ACID 保障。
+* **8.2 分布式基础设施实装（Redis Distributed Lock & Postgres Checkpointer）**
+  * 接入真实 Redis 分布式互斥锁，基于 `thread_id` 实现多 Pod 集群级并发防抖与租约自动续期（Lease Renewal）。
+  * 替换 `MemorySaver`，实装生产级持久化快照引擎（PostgresSaver / DB-backed Checkpointer），实现断点与记忆跨实例共享、宕机不丢。
+* **8.3 智能体分层解耦与依赖注入（Clean Architecture / DDD 分层装配）**
+  * 将单文件代码彻底解耦拆分到 `sky_takeout_agent/src/app` 工业级目录：
+    * `core/`: 基础设施与配置校验
+    * `schemas/`: 请求、响应与 Agent State 强类型 DTO
+    * `services/agent/tools/`: 依赖注入真实 DB 会话的业务工具集
+    * `services/agent/specialists/`: 独立专业智能体节点
+    * `services/agent/supervisor.py`: 主管路由与终态代码守卫
+    * `services/agent/graph_factory.py`: 生产图编译工厂
+* **8.4 微服务网关与全局治理（FastAPI, SSE & Observability）**
+  * 挂载全局 `TraceID` 链路追踪中间件、JWT 身份验签与请求耗时审计。
+  * 实现生产级 SSE 流式长连接接口与店长审批恢复接口（`Command(resume=...)`）。
+  * 编排 `docker-compose.yml`，一键拉起全套基础服务与 Agent 网关，完成端到端压力测试与生产验收。
 
 ---
 
@@ -219,12 +244,13 @@ flowchart TD
 | 阶段 | 核心交付成果 | 预估工时 | 状态 |
 | :---: | :--- | :---: | :---: |
 | **阶段一** | 手写支持 BSP 超步并发与自定义 Reducer 的强模式状态机 | 约 4 小时 | `[x] 已完成 (1.1~1.4 全通关)` |
-| **阶段二** | 交付三层 Schema 防腐、防越权身份注入的受控 ReAct 智能体 | 约 5 小时 | `[ ] 未开始` |
-| **阶段三** | 接入 AsyncPostgreSQL，实现多租户隔离与历史时间旅行分支 | 约 6 小时 | `[ ] 未开始` |
-| **阶段四** | 实现基于现代 `interrupt()` 的人工审批与动态 `Send` 并行派发 | 约 5 小时 | `[ ] 未开始` |
-| **阶段五** | 交付支持进度推送与打字机效果的 FastAPI SSE 生产流式网关 | 约 5 小时 | `[ ] 未开始` |
-| **阶段六** | 接入 Redis 并发防抖锁、Tool 幂等性、Saga 事务补偿与模型降级 | 约 5 小时 | `[ ] 未开始` |
-| **阶段七** | 跑通 Pytest 状态机单测，完成《苍穹外卖智能体》全业务上线交付 | 约 7 小时 | `[ ] 未开始` |
+| **阶段二** | 交付三层 Schema 防腐、防越权身份注入的受控 ReAct 智能体 | 约 5 小时 | `[x] 已完成 (2.1~2.4 全通关)` |
+| **阶段三** | 接入 Checkpointer/PostgreSQL，实现多租户隔离、时间旅行分支与跨会话长期记忆 Store | 约 6 小时 | `[x] 已完成 (3.1~3.4 全通关)` |
+| **阶段四** | 实现基于现代 `interrupt()` 的人工审批、动态 `Send` 并行派发与模块化子图 | 约 5 小时 | `[x] 已完成 (4.1~4.4 全通关)` |
+| **阶段五** | 交付支持进度推送与打字机效果的 FastAPI SSE 生产流式网关 | 约 5 小时 | `[x] 已完成 (5.1~5.4 全通关)` |
+| **阶段六** | 接入 Redis 并发防抖锁、Tool 幂等性、Saga 事务补偿与模型降级 | 约 5 小时 | `[x] 已完成 (6.1~6.5 全通关)` |
+| **阶段七** | 跑通 Pytest 状态机单测，完成《苍穹外卖智能体》核心逻辑与评估基准验证 | 约 7 小时 | `[x] 已完成 (7.1~7.4 全通关)` |
+| **阶段八** | 依托 sky_takeout_agent 重构为 Clean Architecture 微服务，打通真实 DB/Redis/PostgresSaver 与 Docker 一键交付 | 约 6 小时 | `[>] 进行中 (8.1 开启)` |
 
 ---
 
