@@ -250,7 +250,7 @@ flowchart TD
 | **阶段五** | 交付支持进度推送与打字机效果的 FastAPI SSE 生产流式网关 | 约 5 小时 | `[x] 已完成 (5.1~5.4 全通关)` |
 | **阶段六** | 接入 Redis 并发防抖锁、Tool 幂等性、Saga 事务补偿与模型降级 | 约 5 小时 | `[x] 已完成 (6.1~6.5 全通关)` |
 | **阶段七** | 跑通 Pytest 状态机单测，完成《苍穹外卖智能体》核心逻辑与评估基准验证 | 约 7 小时 | `[x] 已完成 (7.1~7.4 全通关)` |
-| **阶段八** | 依托 sky_takeout_agent 重构为 Clean Architecture 微服务，打通真实 DB/Redis/PostgresSaver 与 Docker 一键交付 | 约 6 小时 | `[>] 进行中 (8.1 开启)` |
+| **阶段八** | 依托 sky_takeout_agent 重构为 Clean Architecture 微服务，打通真实 DB/Redis/PostgresSaver 与 Docker 一键交付 | 约 6 小时 | `[x] 已完成 (8.1~8.4 全通关)` |
 
 ---
 
