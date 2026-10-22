@@ -1,0 +1,122 @@
+services:
+  # ============================================================================
+  # 1. Sky Takeout Multi-Agent FastAPI Microservice Gateway
+  # ============================================================================
+  sky-takeout-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sky_takeout_app
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=SkyTakeoutSystem
+      - APP_PORT=8000
+      - ENV_MODE=prod
+      - LOG_LEVEL=INFO
+      # MySQL connection pointing to the internal docker network service
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USER=${MYSQL_USER:-root}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-root}
+      - MYSQL_DB=${MYSQL_DB:-sky_takeout_agent}
+      # Redis connection
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=${REDIS_PASSWORD:-Redis@123456}
+      - REDIS_DB=${REDIS_DB:-0}
+      # PostgreSQL LangGraph Checkpointer
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_USER=${PG_USER:-postgres}
+      - PG_PASSWORD=${PG_PASSWORD:-Postgres19951211}
+      - PG_DB=${PG_DB:-agent_prod}
+      # LLM Gateway
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - DEEPSEEK_BASE_URL=${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      - DEEPSEEK_MODEL=${DEEPSEEK_MODEL:-deepseek-chat}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - sky_takeout_net
+
+  # ============================================================================
+  # 2. Domain Data Store: MySQL 8.0
+  # ============================================================================
+  mysql:
+    image: mysql:8.0
+    container_name: sky_takeout_mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DB:-sky_takeout_agent}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./scripts/seed_data.sql:/docker-entrypoint-initdb.d/01_seed_data.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_PASSWORD:-root}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sky_takeout_net
+
+  # ============================================================================
+  # 3. Distributed Concurrency Lock & Cache: Redis
+  # ============================================================================
+  redis:
+    image: redis:7.2-alpine
+    container_name: sky_takeout_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "${REDIS_PASSWORD:-Redis@123456}"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-Redis@123456}", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - sky_takeout_net
+
+  # ============================================================================
+  # 4. LangGraph Multi-Agent Checkpointer Snapshot Store: PostgreSQL 16
+  # ============================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: sky_takeout_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${PG_USER:-postgres}
+      POSTGRES_PASSWORD: ${PG_PASSWORD:-Postgres19951211}
+      POSTGRES_DB: ${PG_DB:-agent_prod}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USER:-postgres} -d ${PG_DB:-agent_prod}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - sky_takeout_net
+
+volumes:
+  mysql_data:
+  redis_data:
+  postgres_data:
+
+networks:
+  sky_takeout_net:
+    driver: bridge

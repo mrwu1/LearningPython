@@ -1,0 +1,30 @@
+# Version control
+.git
+.gitignore
+
+# Python cache & virtual environments
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE & Editor artifacts
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+tests/
+
+# Sensitive local configurations
+.env
+*.log

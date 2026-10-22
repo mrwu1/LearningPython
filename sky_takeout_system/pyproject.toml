@@ -1,0 +1,40 @@
+[project]
+name = "sky-takeout-system"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "wuyouzhi", email = "18355105096@163.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.20.0",
+    "asyncmy>=0.2.16",
+    "bcrypt>=4.1.0",
+    "cryptography>=42.0.0",
+    "fastapi>=0.157.0",
+    "langchain-core>=1.6.12",
+    "langchain-openai>=1.7.2",
+    "langgraph>=1.2.16",
+    "langgraph-checkpoint-postgres>=3.2.0",
+    "loguru>=0.7.3",
+    "psycopg[binary,pool]>=3.3.6",
+    "pydantic-settings>=2.16.1",
+    "pyjwt>=2.8.0",
+    "redis>=8.1.0",
+    "sqlalchemy[asyncio]>=2.1.5",
+    "sse-starlette>=3.5.0",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+sky-takeout-system = "sky_takeout_system:main"
+
+[build-system]
+requires = ["uv_build>=0.12.20,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "sqlacodegen>=4.0.4",
+]
