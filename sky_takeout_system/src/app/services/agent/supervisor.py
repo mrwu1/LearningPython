@@ -2,6 +2,7 @@ from langchain_core.messages import SystemMessage, AIMessage, AIMessage
 from loguru import logger
 from app.core.llm import get_llm
 from app.schemas.agent_state import SkyTakeoutState, SupervisorDecision
+from app.services.agent.context_manager import prepare_trimmed_messages
 
 
 async def supervisor_node(state: SkyTakeoutState) -> dict:
@@ -53,9 +54,15 @@ async def supervisor_node(state: SkyTakeoutState) -> dict:
 
     llm = get_llm(temperature=0.0)
     structured_llm = llm.with_structured_output(SupervisorDecision, method="function_calling")
-    decision: SupervisorDecision = await structured_llm.ainvoke(
-        [SystemMessage(content=supervisor_prompt)] + state["messages"]
+    # decision: SupervisorDecision = await structured_llm.ainvoke(
+    #     [SystemMessage(content=supervisor_prompt)] + state["messages"]
+    # )
+    # ✅ 修改后：接入修剪器，只送最近精简上下文
+    optimized_prompt = prepare_trimmed_messages(
+        system_prompt=supervisor_prompt,
+        raw_messages=state["messages"]
     )
+    decision: SupervisorDecision = await structured_llm.ainvoke(optimized_prompt)
     logger.info(f"[Supervisor] Routing decision -> '{decision.next_worker}' | Reason: {decision.reason}")
     return {"next_worker": decision.next_worker}
 

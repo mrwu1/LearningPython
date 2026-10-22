@@ -90,6 +90,9 @@ class Settings(BaseSettings):
     RATE_LIMIT_IP_MAX_REQUESTS: int = Field(default=30, description="单个 IP 窗口期内最大请求数")
     RATE_LIMIT_IP_WINDOW_SECONDS: int = Field(default=60, description="IP 限流时间窗口大小(秒)")
 
+    # 8. 对话上下文与 Token 优化配置 (Context Trimming)
+    MAX_CONTEXT_MESSAGES: int = Field(default=6, description="送入大模型保留的最近消息条数(滑动窗口)")
+    MAX_CONTEXT_TOKENS: int = Field(default=2000, description="单次送入大模型的上下文 Token 预算硬上限")
     # LOAD THE .env FILE AUTOMATICALLY
     model_config = SettingsConfigDict(
         env_file=PROJECT_ROOT / ".env",

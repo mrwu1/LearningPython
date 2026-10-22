@@ -56,13 +56,13 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-root}
-      MYSQL_DATABASE: ${MYSQL_DB:-sky_takeout_agent}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-Rootwyz@19951211}
+      MYSQL_DATABASE: ${DB_NAME:-sky_takeout_agent}
     volumes:
       - mysql_data:/var/lib/mysql
       - ./scripts/seed_data.sql:/docker-entrypoint-initdb.d/01_seed_data.sql:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_PASSWORD:-root}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_PASSWORD:-Rootwyz@19951211}"]
       interval: 10s
       timeout: 5s
       retries: 5

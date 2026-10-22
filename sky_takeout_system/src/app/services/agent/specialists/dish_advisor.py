@@ -4,6 +4,7 @@ from app.core.database import AsyncSessionLocal
 from app.core.llm import get_llm
 from app.repositories.dish_repo import DishRepository
 from app.schemas.agent_state import SkyTakeoutState
+from app.services.agent.context_manager import prepare_trimmed_messages
 
 
 async def dish_advisor_worker(state: SkyTakeoutState) -> dict:
@@ -28,7 +29,14 @@ async def dish_advisor_worker(state: SkyTakeoutState) -> dict:
         "2. Do NOT invent or mention dishes not listed above.\n"
         "3. State the exact dish name, price, and estimated prep time to the customer warmly in 2 concise sentences."
     )
-    response = await llm.ainvoke([SystemMessage(content=system_prompt)] + state["messages"])
+    # ❌ 修改前：全量发送
+    # response = await llm.ainvoke([SystemMessage(content=system_prompt)] + state["messages"])
+    # ✅ 修改后：精简上下文发送
+    optimized_prompt = prepare_trimmed_messages(
+        system_prompt=system_prompt,
+        raw_messages=state["messages"]
+    )
+    response = await llm.ainvoke(optimized_prompt)
     # return {
     #     "messages": [AIMessage(content=f"[Dish Advisor]: {response.content}")],
     #     "next_worker": "FINISH"
