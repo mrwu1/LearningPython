@@ -251,6 +251,24 @@ flowchart TD
 | **阶段六** | 接入 Redis 并发防抖锁、Tool 幂等性、Saga 事务补偿与模型降级 | 约 5 小时 | `[x] 已完成 (6.1~6.5 全通关)` |
 | **阶段七** | 跑通 Pytest 状态机单测，完成《苍穹外卖智能体》核心逻辑与评估基准验证 | 约 7 小时 | `[x] 已完成 (7.1~7.4 全通关)` |
 | **阶段八** | 依托 sky_takeout_agent 重构为 Clean Architecture 微服务，打通真实 DB/Redis/PostgresSaver 与 Docker 一键交付 | 约 6 小时 | `[x] 已完成 (8.1~8.4 全通关)` |
+| **阶段九** | 企业级高阶深化：跨会话长期记忆 Store、Saga 补偿、打字机流式与 CI/CD 自动化门禁 | 约 8 小时 | `[进行中] 当前攻坚：9.1 跨会话长期记忆` |
+
+---
+
+## 六、 阶段九：企业级架构高阶深化与商业化进阶（Advanced Enterprise Frontiers）
+
+* **9.1 跨会话长期记忆与个性化偏好存储（Cross-Session Long-Term Memory via LangGraph Store）**
+  * 突破单个 `thread_id` 会话孤岛，引入 LangGraph 官方 `BaseStore` / `AsyncPostgresStore`。
+  * 设计三级多租户隔离命名空间：`namespace=("users", user_id, "dietary_profile")`。
+  * 实现跨会话长期记忆的动态抽取与语义召回（Long-term Fact Extraction & Retrieval），自动保留用户长期忌口、过敏原与偏好。
+* **9.2 分布式事务逆向补偿拓扑（Saga Pattern & Compensating Transactions）**
+  * 正向履约动作与逆向补偿分支拓扑设计，保障网络抖动与第三方支付失败时的最终一致性。
+* **9.3 逐字打字机五维流式网关（Token-Level SSE Streaming & StreamWriter）**
+  * 双通道流（`stream_mode=["messages", "custom"]`），支持 Token 碎片实时推送与业务进度展示。
+* **9.4 生产级全链路 APM 可观测性大盘（OpenTelemetry + Prometheus + Grafana）**
+  * 暴露 QPS、P99 延迟瀑布流、实时 Token 成本与熔断率大盘。
+* **9.5 自动化 CI/CD 与容器编排发布门禁（GitHub Actions & Kubernetes HPA）**
+  * 自动化跑通黄金测试基准集，准确率低于 95% 自动阻断发布。
 
 ---
 
