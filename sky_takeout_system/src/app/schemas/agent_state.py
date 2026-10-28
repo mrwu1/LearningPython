@@ -1,5 +1,5 @@
 import operator
-from typing import TypedDict, Annotated, Literal
+from typing import TypedDict, Annotated, Literal, List
 from langchain_core.messages import BaseMessage
 from langgraph.graph import add_messages
 from pydantic import BaseModel, Field
@@ -26,6 +26,7 @@ class SkyTakeoutState(TypedDict):
     # 业务会话身份
     order_id: str
     user_id: str
+    dish_name: str  # Associated dish/SKU for orders and refunds
 
     # 拓扑路由指针 (强类型约束)
     next_worker: Literal["dish_advisor", "order_manager", "refund_officer", "FINISH"]
@@ -39,6 +40,10 @@ class SkyTakeoutState(TypedDict):
     refund_status: str  # "NONE" | "PENDING_APPROVAL" | "APPROVED" | "REJECTED"
     reviewer_notes: str
 
+   # 记录已执行的正向动作快照: [{"action": "LOCK_ORDER", ...}, {"action": "RESTOCK_DISH", ...}]
+    saga_stack: List[str]
+    saga_failed:bool # 是否触发了逆向回滚
+    saga_error_msg:str  # 回滚原因 (如网关超时、余额不足) 
 
 class SupervisorDecision(BaseModel):
     """

@@ -7,7 +7,7 @@ from app.core.config import settings
 
 def get_llm(
         temperature: float = 0.0,
-        streaming: bool = False,
+        streaming: bool = True,# 👈 默认开启流式 Token 回调
         timeout: float | None = None,
         max_retries: int | None = None
 ) -> Runnable:
@@ -37,7 +37,7 @@ def get_llm(
     if not settings.BACKUP_LLM_ENABLED or not backup_key:
         return primary_llm
 
-        # 3. 组装备用大模型通道 (Failover Channel)
+    # 3. 组装备用大模型通道 (Failover Channel)
     backup_llm = ChatOpenAI(
         model=settings.BACKUP_LLM_MODEL,
         api_key=backup_key,

@@ -17,8 +17,8 @@ async def login_endpoint(
         payload: LoginRequest,
         session: AsyncSession = Depends(get_db_session),
 ):
-    user = UserRepository.get_by_user(session,payload.username)
-    if not user or not verify_password(payload.password,user.hashed_password):
+    user = await UserRepository.get_by_user(session, payload.username)
+    if not user or not verify_password(payload.password, user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid username or password.",

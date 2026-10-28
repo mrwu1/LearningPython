@@ -73,7 +73,7 @@ class DishRepository:
             if dish.stock < quantity:
                 return False, f"Insufficient stock for '{name}' (Stock: {dish.stock}, Wanted: {quantity})", dish.prep_time_minutes
 
-    # ✅ 优化为：redis +lua
+    # ✅ 优化为：optimistic lock with version and spin-retry / cas
     # thought:  改为“先读取 version，更新时带上 version = old_version，若冲突则循环重试”：
     @staticmethod
     async def check_and_deduct_stock(#check_and_deduct_stock_redis_distribute

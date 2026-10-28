@@ -112,10 +112,33 @@ services:
     networks:
       - sky_takeout_net
 
+  # ============================================================================
+  # 5. APM Metrics Scraper & Observability: Prometheus
+  # ============================================================================
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    container_name: sky_takeout_prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    depends_on:
+      - sky-takeout-app
+    networks:
+      - sky_takeout_net
+
 volumes:
   mysql_data:
   redis_data:
   postgres_data:
+  prometheus_data:
 
 networks:
   sky_takeout_net:

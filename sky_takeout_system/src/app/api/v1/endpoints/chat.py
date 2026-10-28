@@ -1,7 +1,4 @@
-import json
-from fastapi import APIRouter, Request, HTTPException, status, Depends
-from langchain_core.messages import HumanMessage
-from loguru import logger
+from fastapi import APIRouter, Request, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sse_starlette import EventSourceResponse
 
@@ -9,10 +6,11 @@ from app.api.deps import get_db_session, get_current_user
 from app.core.config import settings
 from app.core.logging import trace_id_ctx
 from app.core.rate_limiter import RedisSlidingWindowLimiter
-from app.core.redis import DistributedSessionLock
+from app.core.streaming.adapter import LangGraphStreamAdapter
+from app.core.streaming.session_guard import guard_stream_session
 from app.models import User
-from app.repositories.order_repo import OrderRepository
 from app.schemas.takeout import TakeoutChatRequest
+from app.services.agent.takeout_stream_svc import verify_order_access, run_takeout_agent_stream
 
 router = APIRouter(prefix="/takeout", tags=["Takeout Agent Interactions"])
 
@@ -20,124 +18,55 @@ router = APIRouter(prefix="/takeout", tags=["Takeout Agent Interactions"])
 chat_user_limiter = RedisSlidingWindowLimiter(
     key_prefix="rate_limit:chat:user",
     max_requests=settings.RATE_LIMIT_USER_MAX_REQUESTS,
-    window_seconds=settings.RATE_LIMIT_USER_WINDOW_SECONDS,
+    window_seconds=settings.RATE_LIMIT_USER_WINDOW_WINDOW_SECONDS if hasattr(settings, "RATE_LIMIT_USER_WINDOW_WINDOW_SECONDS") else settings.RATE_LIMIT_USER_WINDOW_SECONDS,
 )
 
 
 @router.post("/chat")
 async def chat_stream_endpoint(
-        payload: TakeoutChatRequest,
-        request: Request,
-        current_user: User = Depends(get_current_user),       # 👈 Requires valid JWT token
-        session: AsyncSession = Depends(get_db_session)  # 👈 Database session for ownership verification
+    payload: TakeoutChatRequest,
+    request: Request,
+    current_user: User = Depends(get_current_user),       # 👈 Requires valid JWT token
+    session: AsyncSession = Depends(get_db_session)        # 👈 Database session for ownership verification
 ):
     """
-    Customer SSE Chat Endpoint:
-    Guarded by Redis Distributed Session Lock, streams live node progress over SSE,
-    and dynamically detects interrupt() breakpoints for human-in-the-loop review.
+    Decoupled Customer SSE Chat Endpoint:
+    Guards ingress via sliding-window rate limiting & anti-IDOR checks,
+    acquires distributed session lock via session guard,
+    and streams multi-channel agent events (token, thought, progress, interrupt).
     """
-    effective_user_id = current_user.user_identifier
+    # 1. Layer 0 Defense: Sliding-window rate limiting and anti-IDOR checks
+    await chat_user_limiter.check_and_record(current_user.user_identifier)
+    await verify_order_access(session, payload, current_user)
 
-    # 0. Global Abuse Prevention & Sliding Window Rate Limiting (Layer 0 Defense)
-    await chat_user_limiter.check_and_record(effective_user_id)
-
-    # 1. Anti-IDOR & Financial Tampering Defense
-    if payload.order_id and payload.order_id not in ["", "UNKNOWN"]:
-        order = await OrderRepository.get_by_order_number(session, payload.order_id)
-        if order:
-            # Customers are strictly restricted to their own orders (Store Managers can inspect any order)
-            if current_user.role != "ROLE_STORE_MANAGER" and order.user_id != effective_user_id:
-                logger.warning(
-                    f"🚨 [Security Alert] User {effective_user_id} attempted unauthorized access "
-                    f"to order {payload.order_id} owned by {order.user_id}!"
-                )
-                raise HTTPException(
-                    status_code=status.HTTP_403_FORBIDDEN,
-                    detail=f"Access denied: Order '{payload.order_id}' does not belong to your account."
-                )
-
-                # Financial Safeguard: Refund request cannot exceed actual order payment
-            if payload.refund_amount and payload.refund_amount > float(order.total_amount):
-                raise HTTPException(
-                    status_code=status.HTTP_400_BAD_REQUEST,
-                    detail=f"Invalid refund amount: Requested ${payload.refund_amount:.2f} "
-                           f"exceeds order total paid amount of ${float(order.total_amount):.2f}."
-                )
-    # end auth
-    thread_id = payload.session_id
-    lock = DistributedSessionLock(thread_id=thread_id, lease_seconds=45)
-
-    # 1. 获取 Redis 分布式会话锁 (多 Pod 集群防并发脏写)
-    if not await lock.acquire():
-        raise HTTPException(
-            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail=f"Session '{thread_id}' is currently busy. Please wait for the previous turn to complete."
-        )
-
+    # 2. Extract tracing context and LangGraph singleton
+    trace_id = trace_id_ctx.get()
     graph = request.app.state.graph
-    current_trace_id = trace_id_ctx.get()
-    config = {"configurable": {"thread_id": thread_id}}
 
-    initial_input = {
-        "trace_id": current_trace_id,
-        "messages": [HumanMessage(content=payload.query)],
-        "order_id": payload.order_id,
-        "user_id": payload.user_id,
-        "next_worker": "dish_advisor",
-        "stock_reports": [],
-        "refund_amount": payload.refund_amount,
-        "refund_reason": payload.refund_reason,
-        "refund_status": "NONE",
-        "reviewer_notes": ""
-    }
+    # 3. Delegate to streaming pipeline
+    async def sse_stream():
+        # 动作 1：进房间，把门反锁 (抢 Redis 锁)
+        async with guard_stream_session(payload.session_id):
+            # 动作 2：把同声传译翻译机搬进房间 - 得到控制权 - 开始执行代码 ‼️ ‼️ ‼️ ‼️ ‼️ ‼️ ‼️ ‼️
+            adapter = LangGraphStreamAdapter(trace_id=trace_id)
 
-    async def sse_generator():
-        try:
-            logger.info(f"⚡ [SSE Stream Start] Session: {thread_id} | TraceID: {current_trace_id}")
-            async for mode, event in graph.astream(initial_input, stream_mode=["updates"], config=config):
-                # 客户端断连检测
-                if await request.is_disconnected():
-                    logger.warning(f"Client disconnected for session {thread_id}. Aborting stream.")
-                    break
+            # 动作 3：站在流水线终点，等下一包数据传过来 -  # 从这条传送带上，一个一个取走数据包：
+            async for sse_event in run_takeout_agent_stream(
+                graph=graph,
+                payload=payload,
+                trace_id=trace_id,
+                adapter=adapter,
+                request=request
+            ):
+                # 动作 4：把拿到的一包数据，顺着网线直接“吐”给前端
+                yield sse_event.to_sse_dict()
 
-                # 推送superstep node 完成事件
-                active_nodes = list(event.keys())
-                yield {
-                    "event": "node_update",
-                    "data": json.dumps({"nodes": active_nodes, "trace_id": current_trace_id}, ensure_ascii=False)
-                }
-
-            # 检查图在持久化快照中是否处于动态断点挂起态
-            snapshot = await graph.aget_state(config)
-            if snapshot.tasks and snapshot.tasks[0].interrupts:
-                alert_info = snapshot.tasks[0].interrupts[0].value
-                logger.info(f"🚨 [Interrupt Triggered] Session {thread_id} paused at human review: {alert_info}")
-                yield {
-                    "event": "human_approval_required",
-                    "data": json.dumps({
-                        "session_id": thread_id,
-                        "trace_id": current_trace_id,
-                        "alert": alert_info
-                    }, ensure_ascii=False)
-                }
-            else:
-                yield {
-                    "event": "done",
-                    "data": "[DONE]"
-                }
-        except Exception as e:
-            logger.error(f"💥 [SSE Stream Error] Session {thread_id}: {e}")
-            yield {
-                "event": "error",
-                "data": json.dumps({"error": str(e), "trace_id": current_trace_id}, ensure_ascii=False)
-            }
-        finally:
-            # 无论流正常结束、中断挂起还是客户端断连，必须安全释放分布式锁！
-            await lock.release()
-            logger.info(f"🏁 [SSE Stream Closed] Distributed lock released for session {thread_id}")
-
+    # 👈 你把这个“接力队”交给了 FastAPI 的 EventSourceResponse
+    # EventSourceResponse 对你的 sse_stream() 说：“给我来一个数据包！”
+    # 他左手拿着一把安全锁（guard_stream_session），右手接通后方的净水器（run_takeout_agent_stream）；
+    # 每产生一个 Token，他就用勺子盛给前方的客人（yield）；客人喝完了或者走了，他随手把门锁锁好离开。
     return EventSourceResponse(
-        sse_generator(),
+        sse_stream(),  # 就是一个“水管工”：
         headers={
             "Cache-Control": "no-cache",
             "X-Accel-Buffering": "no"  # 禁止 Nginx 缓冲长连接数据块

@@ -33,7 +33,7 @@ def barista_agent_node(state: BaristaState,config:RunnableConfig,*,store:BaseSto
     user_id = config.get("configurable",{}).get("user_id","anonymous")
     user_namespace = ("user",user_id,"profiles")
 
-    # 1. Fetch persistent long-term memory for this user
+    # 1.❌❌ Fetch persistent long-term memory for this user
     store_profile = state.get(user_namespace,"preferences")
     memory_context = ''
     if store_profile:
@@ -60,7 +60,7 @@ def barista_agent_node(state: BaristaState,config:RunnableConfig,*,store:BaseSto
             "flavor": "Vanilla Syrup",
             "allergies": ["Lactose Intolerant"],
         }
-        # ‼️：put it into the store
+        # ‼️✅✅：put it into the store
         store.put(user_namespace,"preferences",extracted_pref)
         logger.info(f"✅ [Memory Write] Successfully persisted profile into Store for [{user_id}]!")
     return {"messages":[response]}

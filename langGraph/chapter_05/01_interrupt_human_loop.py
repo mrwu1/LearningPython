@@ -107,7 +107,6 @@ if __name__ == "__main__":
         Command(resume=manager_approval_payload),
         config=ticket_config
     )
-
     logger.info(f"Final Approval Status: {final_state['approval_status']}")
     logger.info(f"Final Disbursed Amount: ${final_state['refund_amount']:,.2f}")
     logger.info(f"Payout Status: {final_state['payout_status']}")

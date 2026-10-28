@@ -47,5 +47,5 @@ def decode_access_token(token: str) -> dict[str, Any]:
     return jwt.decode(
         token,
         settings.JWT_SECRET_KEY,
-        algorithm=[settings.JWT_ALGORITHM]
+        algorithms=[settings.JWT_ALGORITHM]
     )

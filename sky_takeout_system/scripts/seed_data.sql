@@ -28,3 +28,16 @@ ON DUPLICATE KEY UPDATE
     courier_distance_meters = VALUES(courier_distance_meters),
     delivery_eta_minutes = VALUES(delivery_eta_minutes),
     updated_at = NOW();
+
+-- 3. Seed Platform Users for Auth & RBAC Testing (Password: 123456)
+INSERT INTO users (username, hashed_password, `role`, user_identifier, status, created_at, updated_at)
+VALUES 
+    ('customer_alice', '$2b$12$dhSLggRkQ4FFxE5hNDfvJ.zBen/QB6g0ViXsWwPu5IKEpVEBGxjd6', 'ROLE_CUSTOMER', 'USER_1001', 1, NOW(), NOW()),
+    ('customer_bob', '$2b$12$dhSLggRkQ4FFxE5hNDfvJ.zBen/QB6g0ViXsWwPu5IKEpVEBGxjd6', 'ROLE_CUSTOMER', 'USER_1002', 1, NOW(), NOW()),
+    ('customer_charlie', '$2b$12$dhSLggRkQ4FFxE5hNDfvJ.zBen/QB6g0ViXsWwPu5IKEpVEBGxjd6', 'ROLE_CUSTOMER', 'USER_1003', 1, NOW(), NOW()),
+    ('manager_boss', '$2b$12$dhSLggRkQ4FFxE5hNDfvJ.zBen/QB6g0ViXsWwPu5IKEpVEBGxjd6', 'ROLE_STORE_MANAGER', 'MANAGER_9001', 1, NOW(), NOW())
+ON DUPLICATE KEY UPDATE 
+    hashed_password = VALUES(hashed_password),
+    `role` = VALUES(`role`),
+    status = VALUES(status),
+    updated_at = NOW();

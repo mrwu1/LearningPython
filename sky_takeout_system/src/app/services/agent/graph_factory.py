@@ -1,5 +1,7 @@
 from contextlib import asynccontextmanager
-from typing import AsyncGenerator
+from typing import AsyncGenerator, Optional
+
+from langgraph.store.base import BaseStore
 from psycopg.rows import dict_row
 from psycopg_pool import AsyncConnectionPool
 from langgraph.checkpoint.base import BaseCheckpointSaver
@@ -23,7 +25,10 @@ def get_pg_connection_string() -> str:
     )
 
 
-def create_sky_takeout_graph(checkpointer: BaseCheckpointSaver):
+def create_sky_takeout_graph(
+        checkpointer: BaseCheckpointSaver,
+        store:Optional[BaseStore] = None,# 👈 增加可选的全局 Store 参数
+):
     """
     Assembles and compiles the Sky Takeout Multi-Agent StateGraph.
     Decoupled from checkpointer implementation for easy testing and multi-environment deployment.
@@ -46,7 +51,7 @@ def create_sky_takeout_graph(checkpointer: BaseCheckpointSaver):
     builder.add_edge("refund_officer", "supervisor")
 
     # 3. Bind persistent checkpointer and compile
-    return builder.compile(checkpointer=checkpointer)
+    return builder.compile(checkpointer=checkpointer,store=store)
 
 
 @asynccontextmanager

@@ -251,7 +251,8 @@ flowchart TD
 | **阶段六** | 接入 Redis 并发防抖锁、Tool 幂等性、Saga 事务补偿与模型降级 | 约 5 小时 | `[x] 已完成 (6.1~6.5 全通关)` |
 | **阶段七** | 跑通 Pytest 状态机单测，完成《苍穹外卖智能体》核心逻辑与评估基准验证 | 约 7 小时 | `[x] 已完成 (7.1~7.4 全通关)` |
 | **阶段八** | 依托 sky_takeout_agent 重构为 Clean Architecture 微服务，打通真实 DB/Redis/PostgresSaver 与 Docker 一键交付 | 约 6 小时 | `[x] 已完成 (8.1~8.4 全通关)` |
-| **阶段九** | 企业级高阶深化：跨会话长期记忆 Store、Saga 补偿、打字机流式与 CI/CD 自动化门禁 | 约 8 小时 | `[进行中] 当前攻坚：9.1 跨会话长期记忆` |
+| **阶段九** | 企业级高阶深化：跨会话长期记忆 Store、Saga 补偿、打字机流式与 CI/CD 自动化门禁 | 约 8 小时 | `[x] 已完成 (9.1~9.5 全通关)` |
+| **阶段十** | 终章收官：高并发混沌工程压测与生产级可观测容器化编排交付 | 约 6 小时 | `[进行中] 当前攻坚：10.1 异步高并发与混沌工程压测` |
 
 ---
 
@@ -269,6 +270,22 @@ flowchart TD
   * 暴露 QPS、P99 延迟瀑布流、实时 Token 成本与熔断率大盘。
 * **9.5 自动化 CI/CD 与容器编排发布门禁（GitHub Actions & Kubernetes HPA）**
   * 自动化跑通黄金测试基准集，准确率低于 95% 自动阻断发布。
+
+---
+
+## 七、 阶段十：终章收官——高并发混沌工程压测与生产级可观测容器化编排交付（Chaos Stress Testing & Production Full-Stack）
+
+* **10.1 异步高并发与混沌工程压测（Locust Load & Chaos Stress Test）**
+  * 编写 Locust 压测套件（`tests/stress/locustfile.py`），模拟 100+ 虚拟并发用户涌入。
+  * 场景 A（SSE 实时长连接压测）：验证高并发下 SSE 流式响应不中断、keep-alive 心跳机制与 TTFT (首字延迟) 分布。
+  * 场景 B（会话级防抖并发冲突）：同一 `thread_id` 瞬时连击，验证 Redis 分布式互斥锁正确拒绝乱序请求并返回 HTTP 429。
+  * 场景 C（金融级退款高并发防超退）：模拟并发退款，验证 Saga 事务与行级锁在竞争下零资金差错。
+* **10.2 生产级全栈微服务容器化编排（Full-Stack Docker Compose & Prometheus APM）**
+  * 升级全栈 `docker-compose.yml`，拓扑编排：FastAPI Gateway + MySQL 8.0 + Redis 7.2 + PostgreSQL 16 + Prometheus 监控服务。
+  * 配置 `prometheus.yml` 采集目标，自动刮取 `/api/v1/metrics`，监控 QPS、TTFT、活跃连接与 Token 消耗。
+* **10.3 课程终结总复盘与企业级落地军规清单（Enterprise Agent Engineering Checklist & Graduation）**
+  * 归纳提炼 10 大企业级 Agent 生产落地方案与架构踩坑指南。
+  * 颁发结课总结与全栈工程成果验收报告。
 
 ---
 
