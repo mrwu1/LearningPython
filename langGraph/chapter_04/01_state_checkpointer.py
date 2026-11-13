@@ -1,22 +1,52 @@
+"""
+================================================================================
+【LangGraph 阶段四：持久化与双层记忆底座】第 1 课：状态检查点（SqliteSaver）与会话记忆
+================================================================================
+【核心学习目标】：
+1. 掌握真实数据库持久化：使用 `SqliteSaver` 代替纯内存的 `InMemorySaver`。
+2. 理解 `thread_id`（线程编号）的工业级定位：
+   - 它是 LangGraph 进行多轮会话（Conversational Memory）追踪的核心唯一键；
+   - 只要携带相同的 `thread_id`，图在唤醒时会自动从数据库中还原上一轮的所有历史。
+3. 深入剖析检查点快照（Checkpoint Snapshot）的内部元数据：
+   - `thread_id`: 会话标识；
+   - `checkpoint_id`: 单调递增的时序唯一标识（UUIDv7）；
+   - `checkpoint_ns`: 命名空间（用于支持子图）；
+   - `values`: 还原出的当前全局状态；
+   - `next`: 下一个等待执行的节点。
+4. 探秘 LangGraph 底层 SQLite 表结构：`checkpoints` 与血缘链路（Lineage Parent）。
+================================================================================
+"""
+
 import os
+import sys
 import sqlite3
+from pathlib import Path
 from typing import TypedDict, Annotated
 
-from dotenv import find_dotenv, load_dotenv
-from langgraph.checkpoint.sqlite import SqliteSaver
-from langgraph.constants import START, END
+# 自动加入根目录到 sys.path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from dotenv import find_dotenv, load_dotenv
 load_dotenv(find_dotenv())
+
 from langchain_core.messages import BaseMessage, HumanMessage
 from langchain_openai import ChatOpenAI
+from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph.constants import START, END
 from langgraph.graph import add_messages, StateGraph
 
 
-# Layer 1: Conversational State Schema
+# ==============================================================================
+# 第一步：定义会话状态契约（State Schema）
+# ==============================================================================
 class PersistentChatState(TypedDict):
-    messages:Annotated[list[BaseMessage],add_messages]
+    # 使用 add_messages 自动追加多轮对话
+    messages: Annotated[list[BaseMessage], add_messages]
 
-# Layer 2: Model Setup & Chat Node
+
+# ==============================================================================
+# 第二步：模型与会话计算节点
+# ==============================================================================
 def get_llm():
     return ChatOpenAI(
         model="deepseek-chat",
@@ -25,73 +55,100 @@ def get_llm():
         temperature=0.0
     )
 
-def conversational_agent_node(state:PersistentChatState):
-    """Invokes LLM with full restored conversation history."""
+
+def conversational_agent_node(state: PersistentChatState) -> dict:
+    """
+    【会话响应节点】：
+    大模型在此节点接收到的 state["messages"]，是经过持久化检查点还原后的【完整历史上下文】！
+    """
     llm = get_llm()
+    print(f"\n🧠 [Chat Node] 正在根据历史已有的 {len(state['messages'])} 条消息进行连贯思考...")
     response = llm.invoke(state["messages"])
-    return {"messages":[response]}
+    return {"messages": [response]}
 
-# Layer 3: Graph Assembly with Persistent Checkpointer
-def build_persistent_graph(checkPointer:SqliteSaver):
+
+# ==============================================================================
+# 第三步：组装图并挂载持久化 Checkpointer
+# ==============================================================================
+def build_persistent_graph(checkpointer: SqliteSaver):
     builder = StateGraph(PersistentChatState)
-    builder.add_node("chat",conversational_agent_node)
+    builder.add_node("chat", conversational_agent_node)
 
-    builder.add_edge(START,"chat")
-    builder.add_edge("chat",END)
+    builder.add_edge(START, "chat")
+    builder.add_edge("chat", END)
 
-    return builder.compile(checkpointer=checkPointer)
+    # 【关键编译参数】：checkpointer
+    # 将持久化检查点存储引擎注入图运行时中
+    return builder.compile(checkpointer=checkpointer)
 
-# Layer 4: Execution & Snapshot Inspection
+
+# ==============================================================================
+# 第四步：多轮对话执行与底层数据库剖析
+# ==============================================================================
 if __name__ == "__main__":
-    #‼️ Create a persistent SQLite storage (in production, pass a file path or Postgres URI)
-    db_connection = sqlite3.connect(":memory:",check_same_thread=False)
+    # 1. 建立 SQLite 数据库连接：
+    # （教学使用内存数据库 :memory:，生产环境可传入本地文件路径 "data.db" 或替换为 PostgresSaver）
+    db_connection = sqlite3.connect(":memory:", check_same_thread=False)
     checkpointer = SqliteSaver(db_connection)
 
     app = build_persistent_graph(checkpointer)
 
-    # ‼️The thread_id identifies a single user session
-    session_config = {"configurable":{"thread_id":"CUSTOMER_SESSION_88"}}
+    # 2. 【核心隔离键 thread_id】：代表客户 Alex 的唯一对话 ID
+    session_config = {
+        "configurable": {
+            "thread_id": "CUSTOMER_SESSION_99"
+        }
+    }
 
-    # --- Turn 1: User discloses a secret preference ---
+    # ==========================================================================
+    # 第一轮交互：用户透露个人偏好（名字叫 Alex，爱吃榴莲）
+    # ==========================================================================
+    print("=" * 65)
+    print("【第一轮对话】：用户自我介绍...")
     turn_1_payload = {
-        "messages":[HumanMessage(content="hello, my name is Alex, and my favorite fruit is Durian.")]
+        "messages": [HumanMessage(content="你好，我叫 Alex，我最喜欢吃的水果是榴莲。")]
     }
-    turn_1_response = app.invoke(turn_1_payload,config=session_config)
-    print(f"[turn_1_response]:{turn_1_response['messages'][-1].content}\n")
+    turn_1_response = app.invoke(turn_1_payload, config=session_config)
+    print(f"🤖 助手回复: {turn_1_response['messages'][-1].content}\n")
 
-    # --- Inspect the Checkpoint Snapshot created by Turn 1 ---
+    # ==========================================================================
+    # 探秘检查点快照（Snapshot Inspection）
+    # ==========================================================================
     snapshot_after_turn_1 = app.get_state(session_config)
-    print("Under-The-Hood Checkpoint Snapshot Inspection:")
-    print(f"  • Session Thread ID: {snapshot_after_turn_1.config['configurable']['thread_id']}")
-    print(f"  • Checkpoint ID (UUIDv7): {snapshot_after_turn_1.config['configurable']['checkpoint_id']}")
-    print(f"  • Checkpoint Namespace: {repr(snapshot_after_turn_1.config['configurable']['checkpoint_ns'])}")
-    print(f"  • Next nodes waiting to run: {snapshot_after_turn_1.next}")
-    print(f"  • Total messages persisted in DB: {len(snapshot_after_turn_1.values['messages'])}")
+    print("🔎 【底层状态检查点快照拆解】:")
+    print(f"  • 会话线程 ID (thread_id): {snapshot_after_turn_1.config['configurable']['thread_id']}")
+    print(f"  • 检查点版本号 (checkpoint_id): {snapshot_after_turn_1.config['configurable']['checkpoint_id']}")
+    print(f"  • 命名空间 (checkpoint_ns): {repr(snapshot_after_turn_1.config['configurable']['checkpoint_ns'])}")
+    print(f"  • 下一跳等待执行节点 (Next): {snapshot_after_turn_1.next}")
+    print(f"  • 数据库已持久化的消息条数: {len(snapshot_after_turn_1.values['messages'])} 条")
 
-    # --- Turn 2: User asks a follow-up question without repeating context ---
-    turn_2_payload={
-        "messages":[HumanMessage(content="what is my name and what's my favorite fruit?")]
+    # ==========================================================================
+    # 第二轮交互：用户追问，完全不提供上下文！
+    # ==========================================================================
+    print("\n" + "=" * 65)
+    print("【第二轮对话】：用户追问（未携带任何前文提示）...")
+    turn_2_payload = {
+        "messages": [HumanMessage(content="请问我叫什么名字？我最喜欢吃什么水果？")]
     }
-    turn_2_response = app.invoke(turn_2_payload,config=session_config)
-    print(f"turn_2_response: {turn_2_response['messages'][-1].content}")
+    # 传入相同的 session_config (相同的 thread_id)，图引擎会自动从 SQLite 中取出前文！
+    turn_2_response = app.invoke(turn_2_payload, config=session_config)
+    print(f"🤖 助手回复: {turn_2_response['messages'][-1].content}")
 
-    # --- Deep-Dive Inspection: Query SQLite directly to see LangGraph's internal tables ---
+    # ==========================================================================
+    # 探秘底层 SQLite 数据库实际创建的物理表结构
+    # ==========================================================================
+    print("\n" + "=" * 65)
+    print("🔎 【SQLite 物理表结构直接查询】:")
     cursor = db_connection.cursor()
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
     tables = cursor.fetchall()
-    print("\n[DB Inspection] Tables automatically created by LangGraph:")
+    print("LangGraph 自动初始化的数据表:")
     for table in tables:
-        print(f"  -> Table: {table[0]}")
+        print(f"  -> 表名: {table[0]}")
 
     cursor.execute("SELECT thread_id, checkpoint_id, parent_checkpoint_id FROM checkpoints;")
     rows = cursor.fetchall()
-    print("\n[DB Inspection] Checkpoint lineage stored in DB:")
+    print("\n检查点演变历史（单向父子血缘链）：")
     for row in rows:
-        print(f"  • Thread: {row[0]} | Checkpoint: {row[1]} | Parent: {row[2]}")
-
-
-
-
-
-
-
+        print(f"  • Thread: {row[0]} | Checkpoint: {row[1]} | 父节点 Parent: {row[2]}")
+    print("=" * 65)
