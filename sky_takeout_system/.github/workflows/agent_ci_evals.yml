@@ -1,0 +1,66 @@
+name: Enterprise Agent Quality Gate & CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  agent-evaluation-gate:
+    name: "Agent Evals & Safety Quality Gate"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      DEEPSEEK_BASE_URL: "https://api.deepseek.com"
+      JWT_SECRET_KEY: "ci-test-secret-key-for-quality-gate"
+      REDIS_HOST: "localhost"
+      REDIS_PORT: 6379
+
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Install uv Package Manager
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+          version: "latest"
+
+      - name: Set up Python 3.12
+        run: uv python install 3.12
+
+      - name: Install Project Dependencies
+        working-directory: sky_takeout_system
+        run: uv sync
+
+      - name: Run Core Unit & Protocol Tests
+        working-directory: sky_takeout_system
+        run: |
+          echo "⚡ Running SSE Stream Adapter Tests..."
+          uv run python tests/test_sse_adapter.py
+          echo "⚡ Running SSE Stream Service & Heartbeat Tests..."
+          uv run python tests/test_sse_service.py
+          echo "⚡ Running APM Telemetry & Metrics Tests..."
+          uv run python tests/test_apm_metrics.py
+          echo "⚡ Running Generic Saga Distributed Transaction Tests..."
+          uv run python tests/test_generic_saga.py
+
+      - name: Execute LLM-as-a-Judge Quality Gate
+        working-directory: sky_takeout_system
+        run: |
+          echo "🎯 Executing 11 Golden Benchmark Test Cases with LLM-as-a-Judge..."
+          uv run python tests/evals/eval_runner.py

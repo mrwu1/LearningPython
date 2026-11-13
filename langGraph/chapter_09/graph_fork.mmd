@@ -1,0 +1,22 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	node_poem(node_poem)
+	node_joke(node_joke)
+	node_default(node_default)
+	router_node(router_node)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> router_node;
+	router_node -.-> node_default;
+	router_node -.-> node_joke;
+	router_node -.-> node_poem;
+	node_default --> __end__;
+	node_joke --> __end__;
+	node_poem --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

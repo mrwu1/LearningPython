@@ -1,0 +1,11 @@
+[project]
+name = "rag-process"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "langchain-core>=1.7.4",
+    "langchain-openai>=1.7.3",
+    "langgraph>=1.2.20",
+    "loguru>=0.7.3",
+    "python-dotenv>=1.2.4",
+]

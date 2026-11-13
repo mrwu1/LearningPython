@@ -1,0 +1,33 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	check_invoice_policy(check_invoice_policy)
+	risk_assessment(risk_assessment)
+	human_approval(human_approval)
+	execute_bank_transfer(execute_bank_transfer)
+	deduct_budget(deduct_budget)
+	compensate(compensate)
+	archive(archive)
+	success(success)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> check_invoice_policy;
+	check_invoice_policy --> risk_assessment;
+	deduct_budget -. &nbsp;budget_failed_archive&nbsp; .-> archive;
+	deduct_budget -. &nbsp;transfer&nbsp; .-> execute_bank_transfer;
+	execute_bank_transfer -. &nbsp;failure_saga&nbsp; .-> compensate;
+	execute_bank_transfer -.-> success;
+	human_approval -. &nbsp;rejected_archive&nbsp; .-> archive;
+	human_approval -. &nbsp;payout&nbsp; .-> deduct_budget;
+	risk_assessment -. &nbsp;back_archive&nbsp; .-> archive;
+	risk_assessment -. &nbsp;payout&nbsp; .-> deduct_budget;
+	risk_assessment -.-> human_approval;
+	archive --> __end__;
+	compensate --> __end__;
+	success --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
